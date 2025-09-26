@@ -1,0 +1,63 @@
+
+.hero {
+  /* Dimensions and Layout */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 65vh; /* Sets a generous height for the banner */
+  text-align: center;
+
+  /* Background Image Properties */
+  background-color: #f5f5f5; /* Fallback background color */
+  background-size: cover; /* Ensures the image covers the entire section */
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.hero-content {
+  /* Ensures content is centered and contained */
+  max-width: 800px;
+  padding: 0 1rem;
+}
+
+.hero-content h1 {
+  /* --- SPECIFIED FONT UPDATES --- */
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;       /* Weight as specified */
+  font-style: italic;     /* Style as specified */
+  font-size: 64px;        /* Size as specified */
+  line-height: 80px;      /* Line height as specified */
+  color: #49426B;         /* Color as specified (Deep Purple) */
+  
+  margin-bottom: 2rem;
+}
+
+.hero-btn {
+  /* Button styling, slightly adjusted for better visibility */
+  background-color: #6a4c93; 
+  color: #fff;
+  padding: 0.75rem 2.5rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  
+  letter-spacing: 0.05em;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
+}
+
+.hero-btn:hover {
+  background-color: #553c7a;
+}
+
+/* Mobile Responsiveness for readability */
+@media (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 2.5rem;    /* Scale down font size */
+    line-height: 3rem;
+  }
+  .hero {
+    height: 50vh;
+  }
+}

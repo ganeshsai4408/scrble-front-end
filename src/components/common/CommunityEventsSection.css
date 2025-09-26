@@ -1,0 +1,103 @@
+/* src/components/common/CommunityEventsSection.css */
+
+.community-events-section {
+  padding: 4rem 5rem; /* Consistent padding */
+  background-color: #FFFFFF; /* Pure white background as requested */
+  color: #333;
+}
+
+.section-title {
+  /* Using font defined for Top Picks section */
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 64px;
+  color: #2F2851;
+  margin-bottom: 2rem;
+}
+
+.events-grid {
+  display: grid;
+  gap: 1.5rem;
+  /* Define the 2x2 structure with custom column sizes */
+  grid-template-columns: 2fr 1fr; /* Image column wider than text column */
+  grid-template-rows: auto auto;
+  
+  /* Define grid areas for explicit placement */
+  grid-template-areas:
+    "item1 item2"
+    "item3 item4";
+}
+
+/* 1. Large Top-Left Image */
+.event-item-1 {
+  grid-area: item1;
+  overflow: hidden;
+  border-radius: 12px;
+}
+.event-item-1 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* 2. Top-Right Text Block (Light Purple) */
+.event-item-2 {
+  grid-area: item2;
+  border-radius: 12px;
+  padding: 2rem;
+  display: flex;
+  align-items: flex-end; /* Pushes text to the bottom as in the design */
+  min-height: 250px; 
+}
+.purple-bg {
+  background-color: #F0EDF9; /* Light Purple */
+}
+
+/* 3. Bottom-Left Text Block (Light Pink) */
+.event-item-3 {
+  grid-area: item3;
+  border-radius: 12px;
+  padding: 2rem;
+  display: flex;
+  align-items: flex-end; /* Pushes text to the bottom */
+}
+.pink-bg {
+  background-color: #FCE6ED; /* Light Pink */
+}
+
+/* 4. Bottom-Right Image */
+.event-item-4 {
+  grid-area: item4;
+  overflow: hidden;
+  border-radius: 12px;
+}
+.event-item-4 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.event-quote {
+  font-size: 0.9rem;
+  font-style: italic;
+  line-height: 1.5;
+  color: #49426B;
+  margin: 0;
+}
+
+/* Mobile Responsiveness (Stack items vertically) */
+@media (max-width: 1024px) {
+  .community-events-section {
+    padding: 3rem 1.5rem;
+  }
+  .events-grid {
+    grid-template-columns: 1fr; /* Single column layout */
+    grid-template-areas:
+      "item1"
+      "item2"
+      "item3"
+      "item4";
+  }
+}

@@ -1,0 +1,16 @@
+/* src/styles/global.css or src/index.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+/* Apply font globally */
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Base styles for the Header's background, inferred from the image */
+.header {
+  background-color: #fce4ec; /* Light Pink Background */
+}

@@ -1,0 +1,42 @@
+/* src/components/products/TopPicksSection.css */
+
+.top-picks-section {
+  padding: 4rem 5rem; /* Increased padding to match new Header spacing */
+  background-color: #fff;
+}
+
+.section-title {
+  /* --- SPECIFIED FONT UPDATES --- */
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;       /* Bold weight */
+  font-size: 64px;        /* Size as specified */
+  color: #2F2851;         /* Dark Purple color */
+  
+  margin-bottom: 2rem;
+  padding: 0;
+  /* Removed the 1rem padding from the previous version */
+}
+
+.product-list {
+  display: grid;
+  gap: 2rem; /* Increased gap for better visual separation */
+  grid-template-columns: repeat(3, 1fr);
+}
+
+@media (max-width: 1024px) {
+  .top-picks-section {
+    padding: 3rem 1.5rem;
+  }
+  .product-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .product-list {
+    grid-template-columns: 1fr;
+  }
+  .section-title {
+    font-size: 48px;
+  }
+}

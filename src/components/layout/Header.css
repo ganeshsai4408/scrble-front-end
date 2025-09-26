@@ -1,0 +1,69 @@
+.header {
+  /* Layout and Sizing */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 2rem;
+  min-height: 42px;
+  padding-top: 1.5rem;   /* ~24px */
+  padding-bottom: 1.5rem;
+  /* Styling Update: Pure White Background */
+  background-color: #FFFFFF; /* Change to pure white */
+  color: #333;
+}
+
+/* Logo Styling (Adjust path/size as necessary) */
+.logo-img {
+  height:  3.5rem;; /* Large enough for the heart logo */
+}
+
+/* Navigation Container */
+.nav {
+  /* Center the nav links */
+  flex-grow: 1; 
+  display: flex;
+  justify-content: center;
+}
+
+.nav ul {
+  list-style: none;
+  display: flex;
+  padding: 0;
+  margin: 0;
+  gap: 40px; /* 40px gap as specified */
+}
+
+.nav li {
+  /* Reset default list item styling */
+  line-height: 1;
+}
+
+.nav a {
+  /* Font Specifications */
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500; /* Medium weight as specified */
+  font-size: 14px; /* Size as specified */
+  
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  align-items: center;
+}
+
+.categories-dropdown .dropdown-icon {
+  font-size: 0.5rem;
+  margin-left: 0.3rem;
+}
+
+/* Icon Group Styling */
+.icon-group {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.icon-link {
+  color: #333;
+  font-size: 1.1rem; /* Slightly larger than text for visibility */
+  display: flex; /* For centering the icon */
+  align-items: center;
+}
