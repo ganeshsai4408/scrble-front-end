@@ -1,0 +1,135 @@
+/* src/pages/CollectionOnePage.css */
+
+/* --- Banner Section Styling --- */
+
+.collection-banner {
+  /* Dimensions and Layout */
+  height: 35vh; /* Set height to be a bit shorter than the main Hero */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 2rem 1.5rem;
+  
+  /* Background matching the Home Page Hero */
+  background-color: #fce4ec; 
+  background-image: url('/assets/images/hero-bg.jpg'); 
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.collection-banner h1 {
+  /* Font matching Playfair Display, Italic, Bold, and Dark Purple */
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-style: italic;
+  font-size: 4rem; /* Adjusted for banner title */
+  color: #49426B; 
+  margin-bottom: 0.5rem;
+}
+
+.collection-banner p {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.1rem;
+  color: #49426B;
+}
+
+/* --- Product Grid Styling --- */
+
+.collection-product-grid {
+  /* Desktop Layout: 3 columns */
+  display: grid;
+  gap: 2.5rem 2rem; /* Vertical gap 2.5rem, Horizontal gap 2rem */
+  grid-template-columns: repeat(3, 1fr); 
+  
+  /* Padding matching the desktop header/section padding */
+  padding: 4rem 5rem; 
+}
+
+
+/* --- Responsive Adjustments --- */
+
+@media (max-width: 1200px) {
+  .collection-product-grid {
+    grid-template-columns: repeat(3, 1fr);
+    padding: 4rem 3rem;
+  }
+  
+  .collection-banner h1 {
+    font-size: 3.5rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .collection-product-grid {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 3rem 2rem;
+    gap: 2rem 1.5rem;
+  }
+  
+  .collection-banner {
+    height: 30vh;
+    padding: 1.5rem 1rem;
+  }
+  
+  .collection-banner h1 {
+    font-size: 3rem;
+  }
+  
+  .collection-banner p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .collection-product-grid {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 2.5rem 1.5rem;
+    gap: 1.5rem 1rem;
+  }
+  
+  .collection-banner {
+    height: 25vh;
+    padding: 1.25rem 1rem;
+  }
+  
+  .collection-banner h1 {
+    font-size: 2.5rem;
+  }
+  
+  .collection-banner p {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .collection-product-grid {
+    grid-template-columns: 1fr;
+    padding: 2rem 1rem;
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .collection-banner {
+    height: 20vh;
+    padding: 1rem;
+  }
+  
+  .collection-banner h1 {
+    font-size: 2rem;
+    line-height: 1.2;
+  }
+  
+  .collection-banner p {
+    font-size: 0.85rem;
+    margin-bottom: 0;
+  }
+  
+  .collection-product-grid {
+    padding: 1.5rem 0.75rem;
+    gap: 1.25rem;
+  }
+}

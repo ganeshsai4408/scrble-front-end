@@ -1,3 +1,10 @@
 .home-page main {
-  padding: 0 1rem;
+  padding: 0;
+}
+
+/* Mobile Responsiveness for HomePage */
+@media (max-width: 768px) {
+  .home-page main {
+    padding: 0;
+  }
 }

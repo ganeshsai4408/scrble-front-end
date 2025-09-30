@@ -1,38 +1,199 @@
 .collections-section {
-  padding: 2rem 1rem;
+  padding: 4rem 5rem;
   background-color: #fff;
+}
+
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 64px;
+  color: #2F2851;
+  margin-bottom: 3rem;
+  text-align: center;
 }
 
 .collections-grid {
   display: grid;
-  gap: 1rem;
-  grid-template-columns: 1fr;
-}
-
-@media (min-width: 768px) {
-  .collections-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
+  gap: 2rem;
+  grid-template-columns: repeat(3, 1fr);
 }
 
 .collection-card {
   background-color: #f9f9f9;
-  border-radius: 8px;
-  padding: 1.5rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   text-align: center;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .collection-card h3 {
-  font-size: 1.5rem;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
   font-weight: 600;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
+  color: #2F2851;
+}
+
+.collection-card p {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+}
+
+.collection-card button {
+  background-color: #6a4c93;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+  align-self: center;
+}
+
+.collection-card button:hover {
+  background-color: #553c7a;
 }
 
 .collection-card-text {
+  background-color: #f0edf9;
+  border-radius: 12px;
+  padding: 2rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
+  min-height: 200px;
+}
+
+.collection-card-text h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: #2F2851;
+}
+
+.collection-card-text button {
+  background-color: #6a4c93;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+.collection-card-text button:hover {
+  background-color: #553c7a;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 1024px) {
+  .collections-section {
+    padding: 3rem 2rem;
+  }
+
+  .section-title {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+  }
+
+  .collections-grid {
+    gap: 1.5rem;
+  }
+
+  .collection-card,
+  .collection-card-text {
+    padding: 1.5rem;
+    min-height: 180px;
+  }
+
+  .collection-card h3,
+  .collection-card-text h3 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .collections-section {
+    padding: 2.5rem 1.5rem;
+  }
+
+  .section-title {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .collections-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .collection-card,
+  .collection-card-text {
+    padding: 1.25rem;
+    min-height: 150px;
+  }
+
+  .collection-card h3,
+  .collection-card-text h3 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+  }
+
+  .collection-card p {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+
+  .collection-card button,
+  .collection-card-text button {
+    padding: 0.625rem 1.25rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .collections-section {
+    padding: 2rem 1rem;
+  }
+
+  .section-title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .collection-card,
+  .collection-card-text {
+    padding: 1rem;
+    min-height: 120px;
+  }
+
+  .collection-card h3,
+  .collection-card-text h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .collection-card p {
+    font-size: 0.85rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .collection-card button,
+  .collection-card-text button {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+    width: 100%;
+    max-width: 150px;
+  }
 }
