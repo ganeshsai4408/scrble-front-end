@@ -118,9 +118,9 @@
 
 .founder-image {
   position: absolute;
-  width: 400px; /* Reduced from 1072px */
-  height: 400px; /* Reduced from 1072px */
-  right: -50px; /* Position slightly off right edge */
+  width: 600px; /* Increased size for bigger founder image */
+  height: 600px; /* Increased size for bigger founder image */
+  right: -80px; /* Adjusted positioning for larger size */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -221,9 +221,9 @@
   
   .founder-image {
     position: relative;
-    width: 70%;
-    max-width: 300px;
-    height: 300px;
+    width: 80%;
+    max-width: 450px;
+    height: 450px;
     right: auto;
   }
 }
@@ -264,8 +264,8 @@
   }
   
   .founder-image {
-    width: 55%;
-    max-width: 250px;
-    height: 250px;
+    width: 70%;
+    max-width: 350px;
+    height: 350px;
   }
 }
