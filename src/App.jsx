@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 // Import pages
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
+import ProductDetailPage from './pages/ProductDetailPage';
 import CollectionOnePage from './pages/CollectionOnePage';
 import CollectionTwoPage from './pages/CollectionTwoPage';
 import CollectionThreePage from './pages/CollectionThreePage';
@@ -19,6 +20,9 @@ const App = () => {
         
         {/* About Page Route */}
         <Route path="/about" element={<AboutPage />} />
+        
+        {/* Product Detail Page Route */}
+        <Route path="/product/:productId" element={<ProductDetailPage />} />
         
         {/* Collections Page Routes */}
         <Route path="/collections/one" element={<CollectionOnePage />} />
