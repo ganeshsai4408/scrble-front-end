@@ -10,6 +10,20 @@ body {
   box-sizing: border-box;
 }
 
+/* Reset image styles to prevent blue boxes or unwanted overlays */
+img {
+  border: none;
+  outline: none;
+  background: none;
+  box-shadow: none;
+}
+
+/* Prevent any pseudo-elements on images */
+img::before,
+img::after {
+  display: none !important;
+}
+
 /* Base styles for the Header's background, inferred from the image */
 .header {
   background-color: #fce4ec; /* Light Pink Background */

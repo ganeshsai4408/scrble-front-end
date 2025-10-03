@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { FiShoppingCart, FiUser, FiSearch } from 'react-icons/fi';
 import { FaChevronDown } from 'react-icons/fa';
 import logoImg from '../../assets/images/logo.png';
@@ -8,25 +9,25 @@ const Header = () => {
   return (
     <header className="header" role="banner">
       {/* Logo: Assuming a heart icon/image */}
-      <a href="/" className="logo-link" aria-label="Home">
+      <Link to="/" className="logo-link" aria-label="Home">
         <img 
           src={logoImg} 
           alt="Scrble Logo - Pink Heart" 
           className="logo-img" 
         />
-      </a>
+      </Link>
 
       {/* Primary Navigation */}
       <nav className="nav" aria-label="Primary">
         <ul>
-          <li><a href="/">Home</a></li>
+          <li><Link to="/">Home</Link></li>
           <li><a href="/shop">Shop all</a></li>
           <li className="categories-dropdown">
             <a href="/categories">
               Categories <FaChevronDown className="dropdown-icon" />
             </a>
           </li>
-          <li><a href="/about">About</a></li>
+          <li><Link to="/about">About</Link></li>
           <li><a href="/contact">Contact</a></li>
         </ul>
       </nav>

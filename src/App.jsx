@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 // Import pages
 import HomePage from './pages/HomePage';
+import AboutPage from './pages/AboutPage';
 import CollectionOnePage from './pages/CollectionOnePage';
 import CollectionTwoPage from './pages/CollectionTwoPage';
 import CollectionThreePage from './pages/CollectionThreePage';
@@ -15,6 +16,9 @@ const App = () => {
       <Routes>
         {/* Main Home Page Route */}
         <Route path="/" element={<HomePage />} />
+        
+        {/* About Page Route */}
+        <Route path="/about" element={<AboutPage />} />
         
         {/* Collections Page Routes */}
         <Route path="/collections/one" element={<CollectionOnePage />} />
