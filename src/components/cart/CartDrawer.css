@@ -77,11 +77,28 @@
 }
 
 .empty-cart-message {
-  font-family: 'Playfair Display', serif;
-  font-style: italic;
-  font-size: 1.5rem;
-  color: #D3AEC9; /* Light pink/purple color */
-  margin-bottom: 1rem;
+  font-family: 'Playfair Display', serif !important;
+  font-style: italic !important;
+  font-size: 1.5rem !important;
+  color: #49426B !important; /* Solid dark purple color */
+  margin-bottom: 1rem !important;
+}
+
+/* High specificity overrides for empty cart message */
+.cart-drawer .empty-cart-view .empty-cart-message {
+  font-family: 'Playfair Display', serif !important;
+  font-style: italic !important;
+  font-size: 1.5rem !important;
+  color: #49426B !important;
+}
+
+/* Ultra-specific override to ensure styles apply */
+html body .cart-drawer .empty-cart-view .empty-cart-message,
+.cart-drawer .empty-cart-view p[class="empty-cart-message"] {
+  font-family: 'Playfair Display', serif !important;
+  font-style: italic !important;
+  font-size: 1.5rem !important;
+  color: #49426B !important;
 }
 
 .continue-shopping-btn {

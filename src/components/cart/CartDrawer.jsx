@@ -29,7 +29,18 @@ const CartDrawer = () => {
         {isEmpty ? (
           /* Empty Cart View */
           <div className="empty-cart-view">
-            <p className="empty-cart-message">Your cart's waiting for something special!!</p>
+            <p 
+              className="empty-cart-message"
+              style={{
+                fontFamily: 'Playfair Display, serif',
+                fontSize: '1.5rem',
+                fontStyle: 'italic',
+                color: '#49426B',
+                marginBottom: '1rem'
+              }}
+            >
+              Your cart's waiting for something special!!
+            </p>
             <button onClick={toggleDrawer} className="continue-shopping-btn">Continue Shopping</button>
           </div>
         ) : (
