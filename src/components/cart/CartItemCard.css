@@ -1,0 +1,110 @@
+.cart-item-card {
+  display: flex;
+  gap: 1.5rem; /* Increased gap between image and text */
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.cart-item-image-container {
+  flex: 0 100 156px; /* Reduced width to 156px */
+
+  height: 216px; /* Increased height to 216px */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Removed background-color, border-radius, and padding to eliminate border effect */
+}
+
+.cart-item-image-container img {
+  width: 100%;
+  height: 100%; /* Use full container height of 216px */
+  object-fit: contain;
+  border-radius: 10px; /* Updated border radius to 10px */
+}
+
+.cart-item-details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Poppins', sans-serif;
+}
+
+.cart-item-name {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333;
+  margin: 0 0 0.2rem 0;
+}
+
+.cart-item-tagline, .cart-item-size {
+  font-size: 0.8rem;
+  color: #777;
+  margin: 0 0 0.4rem 0;
+}
+
+.cart-item-price {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #49426B;
+    margin-bottom: 0.5rem;
+}
+
+.cart-item-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto; /* Pushes controls to the bottom */
+}
+
+/* Quantity Controls */
+.cart-quantity-control {
+  display: flex;
+  align-items: center;
+  background-color: #D3CDEE; /* Updated background color as requested */
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Added drop shadow */
+  overflow: hidden;
+}
+
+.cart-quantity-control button {
+  background: none;
+  border: none;
+  padding: 0.5rem 0.8rem;
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #49426B;
+  transition: background-color 0.2s ease;
+}
+
+.cart-quantity-control button:hover {
+  background-color: rgba(73, 66, 107, 0.1);
+}
+
+.cart-quantity-control span {
+  padding: 0 0.8rem;
+  font-weight: 500;
+  color: #49426B;
+  min-width: 30px;
+  text-align: center;
+}
+
+.cart-remove-btn {
+  background: none;
+  border: none;
+  color: #000; /* Bold black color as requested */
+  cursor: pointer;
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin-left: 1rem; /* Space between quantity control and delete button */
+  padding: 0.5rem;
+  border-radius: 50%;
+  transition: background-color 0.2s ease;
+}
+
+.cart-remove-btn:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}

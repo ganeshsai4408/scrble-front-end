@@ -1,10 +1,12 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FiPlus } from 'react-icons/fi'; // Import the thin Plus icon
+import { useCart } from '../../context/CartContext';
 import './ProductCard.css';
 
 const ProductCard = ({ product }) => {
   const navigate = useNavigate();
+  const { addToCart } = useCart();
 
   const handleCardClick = () => {
     navigate(`/product/${product.id}`);
@@ -12,8 +14,8 @@ const ProductCard = ({ product }) => {
 
   const handleAddToCartClick = (e) => {
     e.stopPropagation(); // Prevent card navigation when clicking add to cart
-    console.log(`Adding ${product.name} to cart`);
-    // Add to cart logic here
+    addToCart(product.id, 'M', 1); // Add with default size M and quantity 1
+    console.log(`Added ${product.name} to cart`);
   };
 
   return (

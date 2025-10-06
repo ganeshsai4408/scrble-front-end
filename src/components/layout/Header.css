@@ -68,6 +68,38 @@
   text-decoration: none;
 }
 
+/* Cart Button Specific Styles */
+.cart-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  transition: color 0.2s ease;
+}
+
+.cart-button:hover {
+  color: #6a4c93;
+}
+
+/* Cart Badge */
+.cart-badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background-color: #FF69B4;
+  color: white;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 18px;
+  line-height: 1;
+}
+
 /* Mobile Menu Toggle (Hidden by default) */
 .mobile-menu-toggle {
   display: none;

@@ -1,0 +1,198 @@
+.cart-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.cart-backdrop.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.cart-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%; /* Default for mobile */
+  max-width: 450px; /* Max width for desktop */
+  height: 100%;
+  background-color: #fcfcfc;
+  box-shadow: -4px 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.cart-drawer.open {
+  transform: translateX(0);
+}
+
+.drawer-header {
+  padding: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+}
+
+.drawer-title {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 2rem;
+  color: #49426B;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #666;
+}
+
+.cart-items-list {
+  flex-grow: 1;
+  padding: 1.5rem;
+  overflow-y: auto;
+}
+
+/* --- Empty Cart View --- */
+.empty-cart-view {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 2rem;
+}
+
+.empty-cart-message {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 1.5rem;
+  color: #D3AEC9; /* Light pink/purple color */
+  margin-bottom: 1rem;
+}
+
+.continue-shopping-btn {
+    background-color: #6A4C93;
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+/* --- Drawer Footer (Cost and Button) --- */
+.drawer-footer {
+  padding: 1.5rem;
+  border-top: 1px solid #eee;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.cost-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* Ensure vertical alignment */
+  margin-bottom: 1.5rem; /* Increased margin for better spacing */
+  width: 100%;
+}
+
+.cart-drawer .drawer-footer .cost-row .estimated-cost-label {
+  font-family: 'Playfair Display', serif !important;
+  font-size: 1.1rem !important;
+  font-style: normal !important;
+  font-weight: 600 !important;
+  color: #49426B !important; /* Solid dark purple */
+  margin: 0 !important; /* Remove any default margins */
+  flex: 0 0 auto; /* Don't grow or shrink */
+}
+
+/* Additional override for label specificity */
+html body .cart-drawer .drawer-footer .cost-row .estimated-cost-label,
+.cart-drawer .drawer-footer .cost-row span[class="estimated-cost-label"] {
+  font-family: 'Playfair Display', serif !important;
+  font-size: 1.1rem !important;
+  font-style: normal !important;
+  font-weight: 600 !important;
+  color: #49426B !important;
+}
+
+.cart-drawer .drawer-footer .cost-row .estimated-cost-value {
+  font-family: 'Poppins', sans-serif !important; /* Force Poppins font */
+  font-size: 1.5rem !important;
+  font-weight: 700 !important;
+  color: #6A4C93 !important; /* Solid purple color */
+  margin: 0 !important; /* Remove any default margins */
+  flex: 0 0 auto; /* Don't grow or shrink */
+  text-align: right; /* Ensure right alignment */
+}
+
+/* Additional fallback with even higher specificity */
+.cart-drawer footer.drawer-footer div.cost-row span.estimated-cost-value {
+  font-family: 'Poppins', sans-serif !important;
+  font-size: 1.5rem !important;
+  font-weight: 700 !important;
+  color: #6A4C93 !important;
+}
+
+/* Ultra-specific override to ensure styles apply */
+html body .cart-drawer .drawer-footer .cost-row .estimated-cost-value,
+.cart-drawer .drawer-footer .cost-row span[class="estimated-cost-value"] {
+  font-family: 'Poppins', sans-serif !important;
+  font-size: 1.5rem !important;
+  font-weight: 700 !important;
+  color: #6A4C93 !important;
+}
+
+/* Override any inherited Playfair Display font */
+.estimated-cost-value * {
+  font-family: inherit !important;
+}
+
+/* Force override any global font inheritance */
+[class*="estimated-cost-value"] {
+  font-family: 'Poppins', sans-serif !important;
+  color: #6A4C93 !important;
+}
+
+/* Reset any potential font inheritance conflicts */
+.cart-drawer * {
+  font-family: inherit;
+}
+
+.cart-drawer .estimated-cost-value {
+  font-family: 'Poppins', sans-serif !important;
+  color: #6A4C93 !important;
+  font-weight: 700 !important;
+}
+
+.buy-now-btn-drawer {
+  width: 100%;
+  background-color: #6A4C93; /* Darker purple */
+  color: #fff;
+  padding: 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+/* Mobile adjustments */
+@media (max-width: 600px) {
+    .cart-drawer {
+        max-width: 100%;
+    }
+}

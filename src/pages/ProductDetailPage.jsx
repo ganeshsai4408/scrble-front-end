@@ -4,6 +4,7 @@ import Header from '../components/layout/Header';
 import Footer from '../components/layout/Footer';
 import ProductCard from '../components/products/ProductCard';
 import QuantityButton from '../components/common/QuantityButton';
+import { useCart } from '../context/CartContext';
 import { topPicksData } from '../utils/data';
 import { FaHeart, FaTruck, FaLock, FaSync } from 'react-icons/fa';
 import './ProductDetailPage.css';
@@ -41,6 +42,7 @@ const fetchProductDetails = (id) => {
 
 const ProductDetailPage = () => {
   const { productId } = useParams(); // Get the ID from the URL (not used here, but good practice)
+  const { addToCart } = useCart();
   const [product, setProduct] = useState(null);
   const [selectedSize, setSelectedSize] = useState(10);
   const [quantity, setQuantity] = useState(1);
@@ -69,9 +71,10 @@ const ProductDetailPage = () => {
   const incrementQuantity = () => setQuantity(prev => prev < 10 ? prev + 1 : prev);
   const decrementQuantity = () => setQuantity(prev => prev > 1 ? prev - 1 : prev);
   
-  // Placeholder for cart logic
+  // Add to cart logic
   const handleAddToCart = () => {
-    console.log(`Adding ${quantity} of Size ${selectedSize} ${product.name} to cart.`);
+    addToCart(product.id, selectedSize.toString(), quantity);
+    console.log(`Added ${quantity} of Size ${selectedSize} ${product.name} to cart.`);
   };
 
   return (

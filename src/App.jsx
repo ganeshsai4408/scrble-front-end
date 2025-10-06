@@ -10,37 +10,42 @@ import CollectionTwoPage from './pages/CollectionTwoPage';
 import CollectionThreePage from './pages/CollectionThreePage';
 import ScrollToTop from './components/common/ScrollToTop';
 
+// Import context
+import { CartProvider } from './context/CartContext';
+
 const App = () => {
   return (
-    <Router>
-      <ScrollToTop />
-      <Routes>
-        {/* Main Home Page Route */}
-        <Route path="/" element={<HomePage />} />
-        
-        {/* About Page Route */}
-        <Route path="/about" element={<AboutPage />} />
-        
-        {/* Product Detail Page Route */}
-        <Route path="/product/:productId" element={<ProductDetailPage />} />
-        
-        {/* Collections Page Routes */}
-        <Route path="/collections/one" element={<CollectionOnePage />} />
-        <Route path="/collections/two" element={<CollectionTwoPage />} />
-        <Route path="/collections/three" element={<CollectionThreePage />} />
-        
-        {/* Optional: Simple 404 fallback */}
-        <Route 
-          path="*" 
-          element={
-            <div style={{ padding: '5rem', textAlign: 'center', fontFamily: 'Poppins, sans-serif' }}>
-              <h1>404 | Page Not Found</h1>
-              <p>The page you are looking for doesn't exist.</p>
-            </div>
-          } 
-        />
-      </Routes>
-    </Router>
+    <CartProvider>
+      <Router>
+        <ScrollToTop />
+        <Routes>
+          {/* Main Home Page Route */}
+          <Route path="/" element={<HomePage />} />
+          
+          {/* About Page Route */}
+          <Route path="/about" element={<AboutPage />} />
+          
+          {/* Product Detail Page Route */}
+          <Route path="/product/:productId" element={<ProductDetailPage />} />
+          
+          {/* Collections Page Routes */}
+          <Route path="/collections/one" element={<CollectionOnePage />} />
+          <Route path="/collections/two" element={<CollectionTwoPage />} />
+          <Route path="/collections/three" element={<CollectionThreePage />} />
+          
+          {/* Optional: Simple 404 fallback */}
+          <Route 
+            path="*" 
+            element={
+              <div style={{ padding: '5rem', textAlign: 'center', fontFamily: 'Poppins, sans-serif' }}>
+                <h1>404 | Page Not Found</h1>
+                <p>The page you are looking for doesn't exist.</p>
+              </div>
+            } 
+          />
+        </Routes>
+      </Router>
+    </CartProvider>
   );
 };
 
