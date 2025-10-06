@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useCart } from '../../context/CartContext';
 import CartItemCard from './CartItemCard';
 import { FiX } from 'react-icons/fi';
@@ -6,7 +7,13 @@ import './CartDrawer.css';
 
 const CartDrawer = () => {
   const { isDrawerOpen, cartItems, totalCost, toggleDrawer } = useCart();
+  const navigate = useNavigate();
   const isEmpty = cartItems.length === 0;
+
+  const handleBuyNow = () => {
+    navigate('/login');
+    toggleDrawer(); // Close the cart drawer
+  };
 
   return (
     <>
@@ -78,7 +85,7 @@ const CartDrawer = () => {
                   ₹{totalCost.toFixed(2)}
                 </span>
               </div>
-              <button className="buy-now-btn-drawer">BUY NOW</button>
+              <button className="buy-now-btn-drawer" onClick={handleBuyNow}>BUY NOW</button>
             </footer>
           </>
         )}

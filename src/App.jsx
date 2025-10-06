@@ -4,6 +4,12 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 // Import pages
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
+import LoginPage from './pages/LoginPage';
+import SignUpPage from './pages/SignUpPage';
+import ForgotPasswordPage from './pages/ForgotPasswordPage';
+import VerificationPage from './pages/VerificationPage';
+import NewPasswordPage from './pages/NewPasswordPage';
+import SuccessPage from './pages/SuccessPage';
 import ProductDetailPage from './pages/ProductDetailPage';
 import CollectionOnePage from './pages/CollectionOnePage';
 import CollectionTwoPage from './pages/CollectionTwoPage';
@@ -24,6 +30,24 @@ const App = () => {
           
           {/* About Page Route */}
           <Route path="/about" element={<AboutPage />} />
+          
+          {/* Login Page Route */}
+          <Route path="/login" element={<LoginPage />} />
+          
+          {/* Sign Up Page Route */}
+          <Route path="/signup" element={<SignUpPage />} />
+          
+          {/* Forgot Password Page Route */}
+          <Route path="/forgot-password" element={<ForgotPasswordPage />} />
+          
+          {/* Verification Page Route */}
+          <Route path="/verification" element={<VerificationPage />} />
+          
+          {/* New Password Page Route */}
+          <Route path="/new-password" element={<NewPasswordPage />} />
+          
+          {/* Success Page Route */}
+          <Route path="/success" element={<SuccessPage />} />
           
           {/* Product Detail Page Route */}
           <Route path="/product/:productId" element={<ProductDetailPage />} />

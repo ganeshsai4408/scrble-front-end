@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import Header from '../components/layout/Header';
 import Footer from '../components/layout/Footer';
 import ProductCard from '../components/products/ProductCard';
@@ -43,6 +43,7 @@ const fetchProductDetails = (id) => {
 const ProductDetailPage = () => {
   const { productId } = useParams(); // Get the ID from the URL (not used here, but good practice)
   const { addToCart } = useCart();
+  const navigate = useNavigate();
   const [product, setProduct] = useState(null);
   const [selectedSize, setSelectedSize] = useState(10);
   const [quantity, setQuantity] = useState(1);
@@ -75,6 +76,11 @@ const ProductDetailPage = () => {
   const handleAddToCart = () => {
     addToCart(product.id, selectedSize.toString(), quantity);
     console.log(`Added ${quantity} of Size ${selectedSize} ${product.name} to cart.`);
+  };
+
+  // Buy now logic - navigate to login page
+  const handleBuyNow = () => {
+    navigate('/login');
   };
 
   return (
@@ -139,7 +145,7 @@ const ProductDetailPage = () => {
             <button className="add-to-cart-btn-large" onClick={handleAddToCart}>
               ADD TO CART
             </button>
-            <button className="buy-now-btn">BUY NOW</button>
+            <button className="buy-now-btn" onClick={handleBuyNow}>BUY NOW</button>
             
             {/* Service Policy */}
             <div className="service-policy-group">

@@ -55,7 +55,7 @@ const Header = () => {
               <span className="cart-badge">{totalItems}</span>
             )}
           </button>
-          <a href="/profile" aria-label="Profile" className="icon-link"><FiUser /></a>
+          <Link to="/login" aria-label="Profile" className="icon-link"><FiUser /></Link>
         </div>
       </header>
 

@@ -1,0 +1,117 @@
+/* Global container for the entire page */
+.verification-page-container {
+  background-color: #EFC2DC; 
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* The white card container */
+.verification-form-card {
+  background-color: #FFFFFF;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  text-align: left;
+}
+
+.verification-logo {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.verification-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+.verification-description {
+  font-size: 0.875rem;
+  color: #666;
+  line-height: 1.4;
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+/* --- Form Styling --- */
+.verification-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Code Input Group */
+.code-input-group {
+  display: flex;
+  gap: 28px;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.code-input {
+  width: 60px;
+  height: 60px;
+  border: 2px solid #C0C0C0;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 1.25rem;
+  font-weight: 500;
+  background-color: #FAFAFA;
+  transition: border-color 0.2s ease;
+  box-sizing: border-box;
+}
+
+.code-input:focus {
+  outline: none;
+  border-color: #6A4C93;
+  background-color: #FFFFFF;
+}
+
+.code-input::-webkit-outer-spin-button,
+.code-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Continue Button */
+.continue-btn {
+  background-color: #6A4C93;
+  color: #fff;
+  padding: 0.875rem 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  margin-top: 0.75rem;
+  width: 100%;
+  transition: background-color 0.2s ease;
+  text-transform: uppercase;
+}
+
+.continue-btn:hover {
+  background-color: #5A3E7F;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .code-input-group {
+    gap: 0.5rem;
+  }
+  
+  .code-input {
+    width: 50px;
+    height: 50px;
+    font-size: 1.125rem;
+  }
+}

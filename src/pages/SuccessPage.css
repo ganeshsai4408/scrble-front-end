@@ -1,0 +1,80 @@
+/* Global container for the entire page */
+.success-page-container {
+  background-color: #EFC2DC; 
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* The white card container */
+.success-form-card {
+  background-color: #FFFFFF;
+  padding: 2.5rem 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+/* Success Icon Styling */
+.success-icon-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.success-icon-circle {
+  width: 100px;
+  height: 100px;
+  background-color: #F8E8F3;
+  border: 3px solid #D3AEC9;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.success-check-icon {
+  font-size: 3rem;
+  color: #D3AEC9;
+  font-weight: bold;
+}
+
+.success-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.success-description {
+  font-size: 0.875rem;
+  color: #666;
+  line-height: 1.4;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+/* Continue Button */
+.success-continue-btn {
+  background-color: #6A4C93;
+  color: #fff;
+  padding: 0.875rem 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  width: 100%;
+  transition: background-color 0.2s ease;
+  text-transform: uppercase;
+}
+
+.success-continue-btn:hover {
+  background-color: #5A3E7F;
+}
