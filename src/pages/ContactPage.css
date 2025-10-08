@@ -1,7 +1,7 @@
 /* Wrapper to apply the background to the main area between header/footer */
 .contact-page-wrapper {
-  /* Background Color as seen in the design (similar to login page) */
-  background-color: #F8E7F0; 
+  /* Background Color updated to requested color */
+  background-color: #F5DAEA; 
   padding: 5rem 0; /* Add vertical padding around the main content */
 }
 
