@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 // Import pages
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
+import ContactPage from './pages/ContactPage';
 import LoginPage from './pages/LoginPage';
 import SignUpPage from './pages/SignUpPage';
 import ForgotPasswordPage from './pages/ForgotPasswordPage';
@@ -30,6 +31,9 @@ const App = () => {
           
           {/* About Page Route */}
           <Route path="/about" element={<AboutPage />} />
+          
+          {/* Contact Page Route */}
+          <Route path="/contact" element={<ContactPage />} />
           
           {/* Login Page Route */}
           <Route path="/login" element={<LoginPage />} />
