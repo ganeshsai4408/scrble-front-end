@@ -1,0 +1,49 @@
+.admin-page-layout {
+  display: flex;
+  min-height: 100vh;
+  background-color: #ffffff; /* White background */
+}
+
+/* Content area with space for collapsed sidebar */
+.admin-content {
+  margin-left: 280px; /* Increased space to account for expanded sidebar (250px + 30px buffer) */
+  flex-grow: 1;
+  padding: 2rem 3rem 2rem 2rem; /* More right padding for better spacing */
+  font-family: 'Poppins', sans-serif;
+  transition: margin-left 0.3s ease-in-out;
+  max-width: calc(100vw - 280px); /* Ensure content doesn't overflow */
+}
+
+/* Orders table section at the top */
+.orders-table-section {
+  margin-bottom: 3rem; /* Increased gap between table and cards */
+  display: flex;
+  justify-content: flex-start; /* Align to start */
+}
+
+.dashboard-cards-grid {
+  display: grid;
+  grid-template-columns: 518px 518px; /* Fixed width cards at 518px */
+  gap: 38px; /* 38px gap as requested */
+  row-gap: 38px; /* 38px gap between top and bottom rows */
+  margin-bottom: 2rem;
+  width: fit-content; /* Don't stretch beyond content */
+}
+
+/* Mobile Responsiveness for layout */
+@media (max-width: 1200px) {
+  .dashboard-cards-grid {
+    grid-template-columns: 518px 518px; /* Keep fixed width even on smaller screens */
+    gap: 38px;
+  }
+}
+
+@media (max-width: 768px) {
+  .admin-content {
+    margin-left: 60px; /* Adjust for smaller collapsed sidebar on mobile */
+    padding: 1rem;
+  }
+  .dashboard-cards-grid {
+    grid-template-columns: 1fr;
+  }
+}

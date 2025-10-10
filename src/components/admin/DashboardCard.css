@@ -1,0 +1,58 @@
+.dashboard-card {
+  background-color: #ffffff; /* Clean white background */
+  border: 1px solid #DE2189; /* Pink border as requested */
+  border-radius: 20px; /* 20px border radius as requested */
+  padding: 1.5rem 2rem; /* Increased padding for larger card */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); /* Subtle shadow */
+  width: 518px !important; /* Fixed width as requested - forced */
+  min-width: 518px !important; /* Enforce minimum width */
+  max-width: 518px !important; /* Enforce maximum width */
+  height: 156px; /* Height increased to 156px as requested */
+  transition: box-shadow 0.3s ease; /* Smooth transition for hover effect */
+  box-sizing: border-box; /* Include padding and border in width */
+}
+
+/* Hover effect with drop shadow */
+.dashboard-card:hover {
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem; /* Minimal gap for compact layout */
+  flex-grow: 1;
+}
+
+.card-title {
+  font-size: 1.4rem; /* Larger size for bigger card */
+  font-weight: 500; /* Medium weight for readability */
+  color: #2c2c2c; /* Darker text for better contrast */
+  margin: 0;
+  line-height: 1.3;
+}
+
+.card-subtitle {
+  font-size: 0.95rem; /* Proportional subtitle size */
+  color: #6b7280; /* Subtle gray color */
+  margin: 0;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.card-amount {
+  background-color: #DE2189; /* Pink color as requested */
+  color: #ffffff; /* White text */
+  font-size: 1.2rem; /* Slightly smaller font */
+  font-weight: 700;
+  width: 45px; /* Smaller width for compact design */
+  height: 45px; /* Smaller height for compact design */
+  border-radius: 10px; /* Proportional border radius */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0; /* Prevent shrinking */
+}

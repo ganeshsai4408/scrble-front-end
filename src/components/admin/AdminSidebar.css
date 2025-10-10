@@ -1,0 +1,155 @@
+.admin-sidebar {
+  width: 70px; /* Collapsed width showing only icons */
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #FCF3F8;
+  padding: 1.5rem 0.5rem;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  z-index: 1000;
+  font-family: 'Poppins', sans-serif;
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); /* Smoother easing function */
+  overflow: hidden; /* Hide text when collapsed */
+}
+
+/* Expand sidebar when hovered */
+.admin-sidebar:hover {
+  width: 250px; /* Expand to full width */
+  padding: 1.5rem 1rem; /* Restore full padding */
+}
+
+.sidebar-logo {
+  text-align: center;
+  margin-bottom: 3rem;
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.sidebar-logo img {
+  width: 40px;
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Expand logo when sidebar is hovered */
+.admin-sidebar:hover .sidebar-logo img {
+  width: 50px;
+}
+
+.sidebar-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-nav li {
+  margin-bottom: 0.5rem;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  color: #333;
+  border-radius: 8px;
+  font-weight: 500; /* Font weight set to 500 as requested */
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  white-space: nowrap; /* Prevent text wrapping */
+}
+
+/* Center icons when collapsed with more padding */
+.admin-sidebar .nav-link {
+  justify-content: center;
+  padding: 1.2rem 0.5rem; /* Increased padding for larger icons */
+}
+
+/* Left align when expanded */
+.admin-sidebar:hover .nav-link {
+  justify-content: flex-start;
+  padding: 0.75rem 1rem;
+}
+
+/* Hide text spans when sidebar is collapsed */
+.admin-sidebar .nav-link span {
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: opacity 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  min-width: 0;
+}
+
+/* Show text spans when sidebar is expanded */
+.admin-sidebar:hover .nav-link span {
+  opacity: 1;
+  transform: translateX(0);
+  transition-delay: 0.1s; /* Slight delay for smoother appearance */
+}
+
+/* Force icon size with maximum specificity */
+.admin-sidebar .nav-link .nav-icon,
+.admin-sidebar .nav-icon {
+  font-size: 24px !important; /* Optimized size for better visibility when collapsed */
+  width: 24px !important;
+  height: 24px !important;
+  color: #000000 !important; /* Black color as requested */
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  min-width: 24px !important;
+  min-height: 24px !important;
+}
+
+/* Same size for expanded state for consistency */
+.admin-sidebar:hover .nav-link .nav-icon,
+.admin-sidebar:hover .nav-icon {
+  font-size: 24px !important;
+  width: 24px !important;
+  height: 24px !important;
+  color: #000000 !important; /* Black color as requested */
+  min-width: 24px !important;
+  min-height: 24px !important;
+}
+
+/* Active State Styling */
+.nav-link.active {
+  background-color: #F0EDF9; /* Light purple background */
+  color: #49426B; /* Darker text color */
+  font-weight: 600;
+}
+
+
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .admin-sidebar {
+    width: 60px; /* Smaller collapsed width on mobile */
+  }
+  
+  .admin-sidebar:hover {
+    width: 200px; /* Smaller expanded width on mobile */
+  }
+}
+
+/* Ultra-specific CSS override to force icon sizes - place at end of file */
+.admin-sidebar .nav-link svg,
+.admin-sidebar [class*="icon"] svg,
+.admin-sidebar svg[class*="icon"],
+.admin-sidebar .nav-icon {
+  font-size: 24px !important;
+  width: 24px !important;
+  height: 24px !important;
+  color: #000000 !important; /* Black color as requested */
+  min-width: 24px !important;
+  min-height: 24px !important;
+}
+
+.admin-sidebar:hover .nav-link svg,
+.admin-sidebar:hover [class*="icon"] svg,
+.admin-sidebar:hover svg[class*="icon"],
+.admin-sidebar:hover .nav-icon {
+  font-size: 24px !important;
+  width: 24px !important;
+  height: 24px !important;
+  color: #000000 !important; /* Black color as requested */
+  min-width: 24px !important;
+  min-height: 24px !important;
+}

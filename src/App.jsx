@@ -17,6 +17,12 @@ import CollectionTwoPage from './pages/CollectionTwoPage';
 import CollectionThreePage from './pages/CollectionThreePage';
 import ScrollToTop from './components/common/ScrollToTop';
 
+// Import admin components
+import AdminDashboard from './components/admin/AdminDashboard';
+import OrdersPage from './pages/OrdersPage';
+import AccountsPage from './pages/AccountsPage';
+import OrderDetailsPage from './pages/OrderDetailsPage';
+
 // Import context
 import { CartProvider } from './context/CartContext';
 
@@ -60,6 +66,19 @@ const App = () => {
           <Route path="/collections/one" element={<CollectionOnePage />} />
           <Route path="/collections/two" element={<CollectionTwoPage />} />
           <Route path="/collections/three" element={<CollectionThreePage />} />
+          
+          {/* Admin Dashboard Route */}
+          <Route path="/admin" element={<AdminDashboard />} />
+          <Route path="/admin/dashboard" element={<AdminDashboard />} />
+          
+          {/* Admin Orders Route */}
+          <Route path="/admin/orders" element={<OrdersPage />} />
+          
+          {/* Admin Accounts Route */}
+          <Route path="/admin/accounts" element={<AccountsPage />} />
+          
+          {/* Admin Order Details Route */}
+          <Route path="/admin/orders/:orderId" element={<OrderDetailsPage />} />
           
           {/* Optional: Simple 404 fallback */}
           <Route 

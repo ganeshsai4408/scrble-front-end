@@ -1,0 +1,247 @@
+.admin-page-layout {
+  display: flex;
+  min-height: 100vh;
+  background-color: #FCF3F8;
+}
+
+.admin-content {
+  margin-left: 280px;
+  padding: 2rem 3rem 2rem 2rem;
+  width: calc(100% - 280px);
+  min-height: 100vh;
+  background-color: #FCF3F8;
+  font-family: 'Poppins', sans-serif;
+  transition: margin-left 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.order-details-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Header */
+.order-details-header {
+  margin-bottom: 2rem;
+}
+
+.back-button {
+  background: none;
+  border: none;
+  color: #666;
+  font-size: 0.9rem;
+  cursor: pointer;
+  margin-bottom: 1rem;
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.back-button:hover {
+  color: #333;
+}
+
+.page-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+}
+
+/* Order Status Card */
+.order-status-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.order-id-section {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.order-label {
+  font-weight: 500;
+  color: #333;
+}
+
+.order-id {
+  font-weight: 600;
+  color: #333;
+}
+
+.status-badge {
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.status-badge.pending {
+  background-color: #FFF3CD;
+  color: #856404;
+}
+
+.order-date {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.date-icon {
+  font-size: 1rem;
+}
+
+/* Info Cards Grid */
+.info-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.info-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.card-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+.customer-icon {
+  background-color: #E91E63;
+}
+
+.order-icon {
+  background-color: #9C27B0;
+}
+
+.deliver-icon {
+  background-color: #E91E63;
+}
+
+.card-header h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.card-content {
+  color: #666;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.card-content p {
+  margin: 0.5rem 0;
+}
+
+.customer-name {
+  font-weight: 500;
+  color: #333;
+}
+
+/* Payment Info Section */
+.payment-info-section {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.payment-info-section h3 {
+  margin: 0 0 1rem 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.payment-card {
+  color: #666;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.payment-method {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: #333;
+}
+
+.card-icon-small {
+  font-size: 1rem;
+}
+
+.payment-card p {
+  margin: 0.5rem 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .admin-content {
+    margin-left: 60px;
+    width: calc(100% - 60px);
+    padding: 1rem;
+  }
+
+  .info-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .order-status-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .order-id-section {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 480px) {
+  .admin-content {
+    padding: 0.5rem;
+  }
+
+  .page-title {
+    font-size: 1.2rem;
+  }
+
+  .info-card,
+  .payment-info-section,
+  .order-status-card {
+    padding: 1rem;
+  }
+}

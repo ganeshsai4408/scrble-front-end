@@ -1,0 +1,65 @@
+.admin-page-layout {
+  display: flex;
+  min-height: 100vh;
+  background-color: #f8f9fa;
+}
+
+.admin-content {
+  margin-left: 280px; /* Account for expanded sidebar width with buffer */
+  padding: 2rem 3rem 2rem 2rem;
+  width: calc(100% - 280px);
+  min-height: 100vh;
+  background-color: #f8f9fa;
+  font-family: 'Poppins', sans-serif;
+  transition: margin-left 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Orders Table Section */
+.orders-table-section {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e9ecef;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .admin-content {
+    margin-left: 60px;
+    width: calc(100% - 60px);
+    padding: 1rem;
+  }
+
+  .orders-stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .section-controls {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .search-input {
+    min-width: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .admin-content {
+    padding: 0.5rem;
+  }
+
+  .page-title {
+    font-size: 1.5rem;
+  }
+
+  .stat-value {
+    font-size: 2rem;
+  }
+}

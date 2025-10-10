@@ -1,0 +1,115 @@
+.admin-page-layout {
+  display: flex;
+  min-height: 100vh;
+  background-color: #FCF3F8;
+}
+
+.admin-content {
+  margin-left: 280px; /* Account for expanded sidebar width with buffer */
+  padding: 2rem 3rem 2rem 2rem;
+  width: calc(100% - 280px);
+  min-height: 100vh;
+  background-color: #FCF3F8;
+  font-family: 'Poppins', sans-serif;
+  transition: margin-left 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Accounts Section */
+.accounts-section {
+  background: white;
+  border-radius: 12px;
+  padding: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e9ecef;
+  overflow: hidden;
+}
+
+.accounts-header {
+  padding: 1.5rem 2rem;
+  background: white;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.accounts-title {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #333;
+  margin: 0;
+}
+
+.accounts-table-container {
+  overflow-x: auto;
+  background: white;
+}
+
+.accounts-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: 'Poppins', sans-serif;
+}
+
+.accounts-table th {
+  background-color: #f8f9fa;
+  padding: 1rem 2rem;
+  text-align: left;
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: #666;
+  border-bottom: 1px solid #e9ecef;
+  white-space: nowrap;
+}
+
+.accounts-table td {
+  padding: 1rem 2rem;
+  border-bottom: 1px solid #f1f3f4;
+  font-size: 0.9rem;
+  color: #333;
+  white-space: nowrap;
+}
+
+.accounts-table tbody tr:hover {
+  background-color: #f8f9fa;
+}
+
+.accounts-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .admin-content {
+    margin-left: 60px;
+    width: calc(100% - 60px);
+    padding: 1rem;
+  }
+
+  .accounts-header {
+    padding: 1rem;
+  }
+
+  .accounts-table th,
+  .accounts-table td {
+    padding: 0.75rem 1rem;
+    font-size: 0.8rem;
+  }
+
+  .accounts-table-container {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .admin-content {
+    padding: 0.5rem;
+  }
+
+  .accounts-title {
+    font-size: 1rem;
+  }
+
+  .accounts-table th,
+  .accounts-table td {
+    padding: 0.5rem;
+    font-size: 0.75rem;
+  }
+}
