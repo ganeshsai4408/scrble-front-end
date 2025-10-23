@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FiEye, FiEyeOff } from 'react-icons/fi';
 import logoImg from '../assets/images/logo.png';
+import { useAuth } from '../context/AuthContext';
 import './LoginPage.css';
 
 const LoginPage = () => {
@@ -9,11 +10,38 @@ const LoginPage = () => {
   const [password, setPassword] = useState('');
   const [rememberMe, setRememberMe] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+  const [loading, setLoading] = useState(false);
+  
+  const { login, error } = useAuth();
+  const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Login Attempt:', { email, password, rememberMe });
-    // In a real app, this is where you'd call your AuthContext login function.
+    setLoading(true);
+    
+    try {
+      const response = await login({ email, password });
+      
+      // Debug: Log the response to see what we're getting
+      console.log('Login response:', response);
+      console.log('Role:', response.role);
+      console.log('RedirectTo:', response.redirectTo);
+      
+      // Check if user is admin and redirect accordingly
+      if (response.role === 'admin' || response.redirectTo === '/admin') {
+        console.log('Redirecting to admin dashboard');
+        navigate('/admin');
+      } else {
+        console.log('Redirecting to home page');
+        // Redirect to home page for regular users
+        navigate('/');
+      }
+    } catch (error) {
+      console.error('Login failed:', error);
+      // Error is handled by AuthContext
+    } finally {
+      setLoading(false);
+    }
   };
 
   const togglePasswordVisibility = () => {
@@ -33,6 +61,20 @@ const LoginPage = () => {
         <h2 className="welcome-title">Welcome back!</h2>
 
         <form onSubmit={handleSubmit} className="login-form">
+          {/* Error Display */}
+          {error && (
+            <div style={{ 
+              color: 'red', 
+              marginBottom: '1rem', 
+              padding: '0.5rem', 
+              border: '1px solid red', 
+              borderRadius: '4px',
+              backgroundColor: '#ffebee'
+            }}>
+              {error}
+            </div>
+          )}
+          
           {/* Email Field */}
           <div className="form-group">
             <label htmlFor="email">Email</label>
@@ -81,8 +123,8 @@ const LoginPage = () => {
           </div>
 
           {/* Login Button */}
-          <button type="submit" className="login-btn">
-            Login
+          <button type="submit" className="login-btn" disabled={loading}>
+            {loading ? 'Logging in...' : 'Login'}
           </button>
         </form>
 

@@ -131,11 +131,12 @@
   .events-grid {
     grid-template-columns: 1fr; /* Single column layout */
     gap: 1rem;
+    /* Mobile order: Image → Text → Image → Text */
     grid-template-areas:
       "item1"
       "item2"
-      "item3"
-      "item4";
+      "item4"
+      "item3";
   }
   
   .event-item-2,

@@ -1,36 +1,34 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import Header from '../components/layout/Header';
+import Footer from '../components/layout/Footer';
 import Hero from '../components/common/Hero';
 import TopPicksSection from '../components/products/TopPicksSection';
 import CollectionsSection from '../components/common/CollectionsSection';
 import CommunityEventsSection from '../components/common/CommunityEventsSection';
-import Footer from '../components/layout/Footer';
 import './HomePage.css';
 
 const HomePage = () => {
-  try {
-    return (
-      <div className="home-page">
+  return (
+    <div>
+      <Header />
+      <main>
+        {/* Hero Section */}
+        <Hero />
 
-        <Header />
-        <main>
-          <Hero />
-          <TopPicksSection />
-          <CollectionsSection />
-          <CommunityEventsSection />
-        </main>
-        <Footer />
-      </div>
-    );
-  } catch (error) {
-    console.error('Error in HomePage:', error);
-    return (
-      <div style={{ padding: '20px', color: 'red' }}>
-        <h1>Error Loading Page</h1>
-        <p>{error.message}</p>
-      </div>
-    );
-  }
+        {/* Top Picks Section */}
+        <TopPicksSection />
+
+        {/* Collections Section */}
+        <CollectionsSection />
+
+        {/* Community Events Section */}
+        <CommunityEventsSection />
+
+      </main>
+      <Footer />
+    </div>
+  );
 };
 
 export default HomePage;

@@ -1,38 +1,123 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import AdminSidebar from '../components/admin/AdminSidebar';
+import { adminAPI } from '../services/apiService';
 import './OrderDetailsPage.css';
 
 const OrderDetailsPage = () => {
   const { orderId } = useParams();
   const navigate = useNavigate();
+  const [orderData, setOrderData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-  // Sample order data - using the orderId from URL params
-  const displayOrderId = orderId ? `#${orderId}` : '#25743';
-  const orderData = {
-    orderId: displayOrderId,
-    status: 'Pending',
-    date: 'Feb 16,2022 - Feb 25,2022',
-    customer: {
-      name: 'Shivani Singh',
-      email: 'shivani@gmail.com',
-      phone: '+91 964 231 1212'
-    },
-    orderInfo: {
-      shippingAddress: 'Next Express',
-      paymentMethod: 'Paypal',
-      status: 'Pending'
-    },
-    deliverTo: {
-      address: 'Ashirwad Dharam Colony, Patan Vesal, Gurgaon',
-      state: 'Haryana'
-    },
-    paymentInfo: {
-      cardNumber: '•••• •••• •••• 4017',
-      businessName: 'Shivani Singh',
-      phone: '+91 964 231 1212'
+  useEffect(() => {
+    fetchOrderDetails();
+  }, [orderId]);
+
+  const fetchOrderDetails = async () => {
+    try {
+      setLoading(true);
+      // Since we don't have a specific order endpoint, we'll get all orders and find the one we need
+      const response = await adminAPI.getOrders();
+      const order = response.data.find(o => o._id === orderId);
+      
+      if (order) {
+        setOrderData({
+          orderId: `#${order._id.slice(-6)}`,
+          status: order.orderStatus,
+          date: new Date(order.createdAt).toLocaleDateString(),
+          customer: {
+            name: order.user?.name || 'Unknown Customer',
+            email: order.user?.email || 'No email provided',
+            phone: '+91 000 000 0000' // This would come from user profile if available
+          },
+          orderInfo: {
+            shippingAddress: `${order.shippingAddress?.address || 'No address'}, ${order.shippingAddress?.city || ''}`,
+            paymentMethod: order.paymentMethod || 'Not specified',
+            status: order.orderStatus
+          },
+          deliverTo: {
+            address: order.shippingAddress?.address || 'No address provided',
+            city: order.shippingAddress?.city || '',
+            postalCode: order.shippingAddress?.postalCode || '',
+            country: order.shippingAddress?.country || ''
+          },
+          paymentInfo: {
+            method: order.paymentMethod || 'Cash on Delivery',
+            isPaid: order.isPaid,
+            totalAmount: order.totalPrice
+          },
+          items: order.items || []
+        });
+      } else {
+        throw new Error('Order not found');
+      }
+      setError(null);
+    } catch (err) {
+      console.error('Error fetching order details:', err);
+      setError(err.message);
+      // Fallback to sample data
+      setOrderData({
+        orderId: `#${orderId?.slice(-6) || '25743'}`,
+        status: 'Pending',
+        date: 'Feb 16, 2022',
+        customer: {
+          name: 'Sample Customer',
+          email: 'customer@example.com',
+          phone: '+91 964 231 1212'
+        },
+        orderInfo: {
+          shippingAddress: 'Sample Address',
+          paymentMethod: 'Cash on Delivery',
+          status: 'Pending'
+        },
+        deliverTo: {
+          address: 'Sample Address, Sample City',
+          city: 'Sample City',
+          postalCode: '000000',
+          country: 'India'
+        },
+        paymentInfo: {
+          method: 'Cash on Delivery',
+          isPaid: false,
+          totalAmount: 200
+        },
+        items: []
+      });
+    } finally {
+      setLoading(false);
     }
   };
+
+  if (loading) {
+    return (
+      <div className="admin-page-layout" style={{ backgroundColor: '#FCF3F8' }}>
+        <AdminSidebar activeSection="Orders" />
+        <main className="admin-content" role="main" style={{ marginLeft: '280px', padding: '2rem', backgroundColor: '#FCF3F8' }}>
+          <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '50vh' }}>
+            <div>Loading order details...</div>
+          </div>
+        </main>
+      </div>
+    );
+  }
+
+  if (error && !orderData) {
+    return (
+      <div className="admin-page-layout" style={{ backgroundColor: '#FCF3F8' }}>
+        <AdminSidebar activeSection="Orders" />
+        <main className="admin-content" role="main" style={{ marginLeft: '280px', padding: '2rem', backgroundColor: '#FCF3F8' }}>
+          <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '50vh', flexDirection: 'column' }}>
+            <div>Error loading order details: {error}</div>
+            <button onClick={() => navigate('/admin/orders')} style={{ marginTop: '1rem' }}>
+              Back to Orders
+            </button>
+          </div>
+        </main>
+      </div>
+    );
+  }
 
   return (
     <div className="admin-page-layout" style={{ backgroundColor: '#FCF3F8' }}>

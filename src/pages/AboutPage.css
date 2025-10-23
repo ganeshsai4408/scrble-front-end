@@ -7,9 +7,6 @@
   font-family: 'Poppins', sans-serif;
 }
 
-.about-section {
-  margin-bottom: 6rem;
-}
 
 .section-title {
   font-family: 'Playfair Display', serif;
@@ -29,6 +26,7 @@
   align-items: stretch; /* Ensures both sections have equal height */
 }
 
+/* Removed old unused section styles */
 /* Alternating layout helper class */
 .reverse {
   flex-direction: row-reverse;

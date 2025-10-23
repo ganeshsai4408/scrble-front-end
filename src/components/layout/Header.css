@@ -9,11 +9,19 @@
   background-color: #FFFFFF; /* Change to pure white */
   color: #333;
   position: relative;
+  box-sizing: border-box; /* Ensure proper box model */
 }
 
 /* Logo Styling (Adjust path/size as necessary) */
 .logo-img {
-  height:  3.5rem;; /* Large enough for the heart logo */
+  height: 3.5rem; /* Large enough for the heart logo */
+  display: block; /* Ensure proper display */
+}
+
+.logo-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
 }
 
 /* Navigation Container */
@@ -22,11 +30,13 @@
   flex-grow: 1; 
   display: flex;
   justify-content: center;
+  align-items: center; /* Ensure vertical alignment */
 }
 
 .nav ul {
   list-style: none;
   display: flex;
+  align-items: center; /* Vertically center nav items */
   padding: 0;
   margin: 0;
   gap: 40px; /* 40px gap as specified */
@@ -35,6 +45,8 @@
 .nav li {
   /* Reset default list item styling */
   line-height: 1;
+  display: flex;
+  align-items: center; /* Center items within each li */
 }
 
 .nav a {
@@ -47,16 +59,127 @@
   color: inherit;
   display: flex;
   align-items: center;
+  position: relative; /* For underline positioning */
+  transition: color 0.2s ease;
 }
 
-.categories-dropdown .dropdown-icon {
+.nav a:hover {
+  color: #6a4c93;
+}
+
+/* Active page styling with underline */
+.nav a.active {
+  color: #6a4c93;
+}
+
+.nav a.active::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: #6a4c93;
+  border-radius: 1px;
+}
+
+/* Collections Dropdown Styles */
+.collections-dropdown {
+  position: relative;
+}
+
+.dropdown-trigger {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  color: inherit;
+  display: flex;
+  align-items: center;
+  padding: 0;
+  position: relative; /* For underline positioning */
+  transition: color 0.2s ease;
+}
+
+.dropdown-trigger:hover {
+  color: #6a4c93;
+}
+
+/* Active state for Collections dropdown */
+.dropdown-trigger.active {
+  color: #6a4c93;
+}
+
+.dropdown-trigger.active::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: #6a4c93;
+  border-radius: 1px;
+}
+
+.dropdown-icon {
   font-size: 0.5rem;
   margin-left: 0.3rem;
+  transition: transform 0.3s ease;
+}
+
+.dropdown-icon.rotated {
+  transform: rotate(180deg);
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: white;
+  border: 1px solid #e1e1e1;
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  min-width: 160px;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+}
+
+.dropdown-menu.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdown-item {
+  display: block;
+  padding: 12px 16px;
+  text-decoration: none;
+  color: #333;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  border-bottom: 1px solid #f0f0f0;
+  transition: background-color 0.2s ease;
+}
+
+.dropdown-item:last-child {
+  border-bottom: none;
+}
+
+.dropdown-item:hover {
+  background-color: #f8f9fa;
+  color: #6a4c93;
 }
 
 /* Icon Group Styling */
 .icon-group {
   display: flex;
+  align-items: center; /* Ensure vertical alignment */
   gap: 1.5rem;
 }
 
@@ -65,7 +188,13 @@
   font-size: 1.1rem; /* Slightly larger than text for visibility */
   display: flex; /* For centering the icon */
   align-items: center;
+  justify-content: center;
   text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.icon-link:hover {
+  color: #6a4c93;
 }
 
 /* Cart Button Specific Styles */
@@ -149,6 +278,28 @@
   .nav a {
     font-size: 16px;
     padding: 0.5rem 0;
+  }
+
+  /* Mobile dropdown adjustments */
+  .collections-dropdown .dropdown-menu {
+    position: static;
+    box-shadow: none;
+    border: none;
+    background-color: #f8f9fa;
+    margin-left: 1rem;
+    margin-top: 0.5rem;
+    border-radius: 0;
+  }
+
+  .collections-dropdown .dropdown-menu.show {
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+  }
+
+  .dropdown-item {
+    padding: 8px 12px;
+    font-size: 14px;
   }
 
   /* Show mobile menu toggle */

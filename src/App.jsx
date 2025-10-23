@@ -16,6 +16,7 @@ import CollectionOnePage from './pages/CollectionOnePage';
 import CollectionTwoPage from './pages/CollectionTwoPage';
 import CollectionThreePage from './pages/CollectionThreePage';
 import ScrollToTop from './components/common/ScrollToTop';
+import ErrorBoundary from './components/common/ErrorBoundary';
 
 // Import admin components
 import AdminDashboard from './components/admin/AdminDashboard';
@@ -25,13 +26,16 @@ import OrderDetailsPage from './pages/OrderDetailsPage';
 
 // Import context
 import { CartProvider } from './context/CartContext';
+import { AuthProvider } from './context/AuthContext';
 
 const App = () => {
   return (
-    <CartProvider>
-      <Router>
-        <ScrollToTop />
-        <Routes>
+    <ErrorBoundary>
+      <AuthProvider>
+        <CartProvider>
+          <Router>
+            <ScrollToTop />
+            <Routes>
           {/* Main Home Page Route */}
           <Route path="/" element={<HomePage />} />
           
@@ -67,6 +71,11 @@ const App = () => {
           <Route path="/collections/two" element={<CollectionTwoPage />} />
           <Route path="/collections/three" element={<CollectionThreePage />} />
           
+          {/* Shop and Categories Routes */}
+          <Route path="/shop" element={<CollectionOnePage />} />
+          <Route path="/categories" element={<CollectionOnePage />} />
+          <Route path="/search" element={<CollectionOnePage />} />
+          
           {/* Admin Dashboard Route */}
           <Route path="/admin" element={<AdminDashboard />} />
           <Route path="/admin/dashboard" element={<AdminDashboard />} />
@@ -90,9 +99,11 @@ const App = () => {
               </div>
             } 
           />
-        </Routes>
-      </Router>
-    </CartProvider>
+          </Routes>
+        </Router>
+      </CartProvider>
+    </AuthProvider>
+    </ErrorBoundary>
   );
 };
 

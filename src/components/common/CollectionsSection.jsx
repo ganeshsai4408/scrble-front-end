@@ -40,25 +40,28 @@ const CollectionsSection = () => {
         {/* Collection Card 1 */}
         <article className="collection-card">
           <div className="card-content">
-            <h3>Collection One</h3>
-            <p>Our favorite picks to make you the star of the show.</p>
+            <h3>Main Character</h3>
+            <p>You were born to be the main character</p>
             {/* Updated button with Collection One navigation */}
             <button onClick={handleExploreCollectionOne}>Explore</button>
           </div>
         </article>
         
-        {/* Collection Card 2 (Text Only) */}
-        <article className="collection-card-text">
-          <h3>Collection Two</h3>
-          {/* Updated button with Collection Two navigation */}
-          <button onClick={handleExploreCollectionTwo}>Explore</button>
+        {/* Collection Card 2 */}
+        <article className="collection-card">
+          <div className="card-content">
+            <h3>That girl</h3>
+            <p>Too glam to give a damn — because you chose herself.*</p>
+            {/* Updated button with Collection Two navigation */}
+            <button onClick={handleExploreCollectionTwo}>Explore</button>
+          </div>
         </article>
         
         {/* Collection Card 3 */}
         <article className="collection-card">
           <div className="card-content">
-            <h3>Collection Three</h3>
-            <p>Step into the spotlight with our trending picks that make you shine.</p>
+            <h3>Self-obsessed</h3>
+            <p>If you're not obsessed with yourself, you're doing it wrong.</p>
             {/* Updated button with Collection Three navigation */}
             <button onClick={handleExploreCollectionThree}>Explore</button>
           </div>

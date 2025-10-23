@@ -4,7 +4,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 65vh; /* Sets a generous height for the banner */
+  height: 770px; /* Set to approximately 770px as requested */
   text-align: center;
 
   /* Background Image Properties */

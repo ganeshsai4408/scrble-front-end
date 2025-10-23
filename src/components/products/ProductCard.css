@@ -3,18 +3,17 @@
 
 .product-card {
   /* Light pink border/shadow */
-  border-radius: 12px;
+  border-radius: 25px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   background-color: #fff;
   padding: 1rem;
   position: relative;
   overflow: hidden;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: background-color 0.3s ease;
 }
 
 .product-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  background-color: #F7E1ED;
 }
 
 .image-container {
@@ -66,8 +65,8 @@
   bottom: 1.5rem; /* Spacing from the bottom */
   right: 1.5rem;  /* Spacing from the right */
   
-  /* Black Background, Thin Plus Symbol */
-  background-color: #000;
+  /* Updated Background Color */
+  background-color: #EFC2DC;
   border: none;
   border-radius: 50%; /* Circle shape */
   width: 32px;
@@ -77,12 +76,22 @@
   justify-content: center;
   align-items: center;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
+}
+
+.add-to-cart-btn:hover {
+  background-color: #F7E1ED;
 }
 
 .add-to-cart-btn .plus-icon {
   color: #fff;
   font-size: 1.25rem;
   stroke-width: 2;
+  transition: color 0.3s ease;
+}
+
+.add-to-cart-btn:hover .plus-icon {
+  color: #EFC2DC;
 }
 
 /* Mobile Responsiveness */

@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FiEye, FiEyeOff } from 'react-icons/fi';
 import logoImg from '../assets/images/logo.png';
+import { useAuth } from '../context/AuthContext';
 import './SignUpPage.css';
 
 const SignUpPage = () => {
@@ -12,15 +13,52 @@ const SignUpPage = () => {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState('');
+  const [error, setError] = useState('');
 
-  const handleSubmit = (e) => {
+  const { register, error: authError } = useAuth();
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    
     if (password !== confirmPassword) {
-      alert('Passwords do not match!');
+      setError('Passwords do not match!');
       return;
     }
-    console.log('Sign up attempt:', { fullName, email, phoneNumber, password });
-    // In a real app, this is where you'd call your registration API
+
+    if (password.length < 8) {
+      setError('Password must be at least 8 characters long');
+      return;
+    }
+
+    setLoading(true);
+    setError('');
+    setMessage('');
+
+    try {
+      const userData = {
+        name: fullName,
+        email,
+        password,
+        phoneNumber
+      };
+
+      const response = await register(userData);
+      setMessage('Account created successfully! Please check your email for verification.');
+      
+      // Redirect to home page after successful registration
+      setTimeout(() => {
+        navigate('/');
+      }, 2000);
+      
+    } catch (error) {
+      setError(error.message || 'Registration failed. Please try again.');
+      console.error('Registration error:', error);
+    } finally {
+      setLoading(false);
+    }
   };
 
   const togglePasswordVisibility = () => {
@@ -44,6 +82,34 @@ const SignUpPage = () => {
         <h2 className="signup-title">Create an account</h2>
 
         <form onSubmit={handleSubmit} className="signup-form">
+          {/* Error Display */}
+          {(error || authError) && (
+            <div style={{ 
+              color: 'red', 
+              marginBottom: '1rem', 
+              padding: '0.5rem', 
+              border: '1px solid red', 
+              borderRadius: '4px',
+              backgroundColor: '#ffebee'
+            }}>
+              {error || authError}
+            </div>
+          )}
+
+          {/* Success Message */}
+          {message && (
+            <div style={{ 
+              color: 'green', 
+              marginBottom: '1rem', 
+              padding: '0.5rem', 
+              border: '1px solid green', 
+              borderRadius: '4px',
+              backgroundColor: '#e8f5e8'
+            }}>
+              {message}
+            </div>
+          )}
+
           {/* Full Name Field */}
           <div className="form-group">
             <label htmlFor="fullName">Full Name</label>
@@ -178,8 +244,8 @@ const SignUpPage = () => {
           </div>
 
           {/* Sign In Button */}
-          <button type="submit" className="signin-btn">
-            Sign in
+          <button type="submit" className="signin-btn" disabled={loading}>
+            {loading ? 'Creating Account...' : 'Sign in'}
           </button>
         </form>
 

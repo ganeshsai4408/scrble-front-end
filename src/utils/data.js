@@ -37,10 +37,10 @@ export const communityEventsData = [
     description: "Community event 1 description.",
   },
   {
-    quote: "Join our creative community and discover new inspirations.",
+    quote: "We hosted our first Tote Bag Community Event — Brush & Brew at Big Owl Cafe, accompanied by a small live band.",
   },
   {
-    quote: "Connect with like-minded individuals and share your passion.",
+    quote: "Our second event, Summer I Turned Pretty, was a fan meet-up with the Scrble Girl community and mini influencers, featuring fun games and tote bag painting.",
   },
   {
     image: event2,

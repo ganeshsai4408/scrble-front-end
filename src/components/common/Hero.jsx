@@ -1,8 +1,15 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Hero.css';
 import HeroBgUrl from '../../assets/images/hero-bg.png';
 
 const Hero = () => {
+  const navigate = useNavigate();
+
+  const handleShopNowClick = () => {
+    navigate('/shop');
+  };
+
   return (
     <section 
       className="hero" 
@@ -14,7 +21,7 @@ const Hero = () => {
     >
       <div className="hero-content">
         <h1>Where Ambition Meets Aesthetic.</h1>
-        <button className="hero-btn">Shop now</button>
+        <button className="hero-btn" onClick={handleShopNowClick}>Shop now</button>
       </div>
     </section>
   );

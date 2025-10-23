@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FiEye, FiEyeOff } from 'react-icons/fi';
 import logoImg from '../assets/images/logo.png';
+import { authAPI } from '../services/apiService';
 import './NewPasswordPage.css';
 
 const NewPasswordPage = () => {
@@ -10,18 +11,57 @@ const NewPasswordPage = () => {
   const [rememberMe, setRememberMe] = useState(false);
   const [showNewPassword, setShowNewPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
+  const [message, setMessage] = useState('');
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  // Get email and token from localStorage
+  const email = localStorage.getItem('resetEmail');
+  const token = localStorage.getItem('resetToken');
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    
     if (newPassword !== confirmPassword) {
-      alert('Passwords do not match!');
+      setError('Passwords do not match!');
       return;
     }
-    console.log('Password updated:', { newPassword, rememberMe });
-    // In a real app, this is where you'd call your password update API
-    // Navigate to success page
-    navigate('/success');
+
+    if (newPassword.length < 6) {
+      setError('Password must be at least 6 characters long');
+      return;
+    }
+
+    if (!email || !token) {
+      setError('Session expired. Please start the password reset process again.');
+      navigate('/forgot-password');
+      return;
+    }
+
+    setLoading(true);
+    setError('');
+    setMessage('');
+
+    try {
+      await authAPI.resetPassword(email, token, newPassword);
+      setMessage('Password updated successfully! Redirecting to login...');
+      
+      // Clear stored data
+      localStorage.removeItem('resetEmail');
+      localStorage.removeItem('resetToken');
+      
+      // Navigate to login page after success
+      setTimeout(() => {
+        navigate('/login');
+      }, 2000);
+      
+    } catch (error) {
+      setError(error.message || 'Failed to update password. Please try again.');
+      console.error('Password reset error:', error);
+    } finally {
+      setLoading(false);
+    }
   };
 
   const toggleNewPasswordVisibility = () => {
@@ -45,6 +85,34 @@ const NewPasswordPage = () => {
         <h2 className="new-password-title">New password</h2>
 
         <form onSubmit={handleSubmit} className="new-password-form">
+          {/* Error Display */}
+          {error && (
+            <div style={{ 
+              color: 'red', 
+              marginBottom: '1rem', 
+              padding: '0.5rem', 
+              border: '1px solid red', 
+              borderRadius: '4px',
+              backgroundColor: '#ffebee'
+            }}>
+              {error}
+            </div>
+          )}
+
+          {/* Success Message */}
+          {message && (
+            <div style={{ 
+              color: 'green', 
+              marginBottom: '1rem', 
+              padding: '0.5rem', 
+              border: '1px solid green', 
+              borderRadius: '4px',
+              backgroundColor: '#e8f5e8'
+            }}>
+              {message}
+            </div>
+          )}
+
           {/* New Password Field */}
           <div className="form-group">
             <label htmlFor="newPassword">New password</label>
@@ -103,8 +171,8 @@ const NewPasswordPage = () => {
           </div>
 
           {/* Update Password Button */}
-          <button type="submit" className="update-password-btn">
-            Update password
+          <button type="submit" className="update-password-btn" disabled={loading}>
+            {loading ? 'Updating...' : 'Update password'}
           </button>
         </form>
       </div>

@@ -7,14 +7,17 @@
 
 /* --- Community Join Section --- */
 .footer-community-join {
-  background-color: #F0EDF9; /* Light purple background */
-  padding: 4rem 5rem;
-  margin: 3rem 5rem; /* Add margin to create space around the rounded box */
+  background-color: #E3E0F5; /* Updated background color as requested */
+  padding: 2.5rem 3rem; /* Reduced padding for less space inside */
+  margin: 3rem auto; /* Center the container and remove side margins */
   border-radius: 16px; /* Rounded corners */
   display: flex;
   justify-content: space-between;
-  align-items: center; /* Center align for better vertical alignment */
-  gap: 4rem; /* Increased gap for better spacing */
+  align-items: center; /* Center align items vertically */
+  gap: 3rem; /* Reduced gap between content sections */
+  max-width: 1400px; /* Set a maximum width for the container */
+  width: 90%; /* Make it responsive and wider */
+  box-sizing: border-box; /* Include padding in width calculation */
 }
 
 .join-content h3 {
@@ -22,14 +25,14 @@
   font-family: 'Playfair Display', serif;
   font-weight: 700;
   font-size: 3rem; /* Larger font size */
-  color: #A2768F; /* Updated color as requested */
+  color: #70435D; /* Updated color as requested */
   margin-bottom: 0.5rem; /* Reduced gap */
   line-height: 1.1;
 }
 
 .join-content {
-  flex: 1;
-  max-width: 500px;
+  flex: 1.2; /* Increased flex ratio for more space */
+  max-width: 600px; /* Increased max width */
 }
 
 .join-content p.join-marketing-text {
@@ -43,55 +46,86 @@
 .subscribe-form-container {
   display: flex;
   flex-direction: column;
-  align-items: flex-end; /* Align to the right side */
-  gap: 0.5rem;
-  min-width: 350px;
+  align-items: flex-start; /* Align to the left side */
+  gap: 0.5rem; /* Reduced gap for tighter spacing */
+  min-width: 600px; /* Increased width for larger input */
   flex-shrink: 0; /* Prevent shrinking */
+  margin-top: -1rem; /* Move up to align with heading */
+  flex: 1; /* Take remaining space */
 }
 
 .stay-up-to-date-text {
   font-size: 0.9rem;
   color: #777;
-  margin: 0;
+  margin: 0 0 0.5rem 0; /* Added bottom margin for spacing */
   align-self: flex-start; /* Keep "Stay up to date" aligned to the left */
 }
 
 .subscribe-form {
   display: flex;
-  gap: 1rem;
+  gap: 29px; /* Set gap to 29px as requested */
   width: 100%;
+  align-items: stretch; /* Make both elements same height */
 }
 
 .subscribe-input {
   /* Match the light pink input background */
   background-color: #FFF0F5; /* Light Pink for input */
-  padding: 1rem 1.5rem;
+  padding: 0 1.5rem; /* Remove vertical padding, keep horizontal */
   border: none;
   border-radius: 8px;
   flex-grow: 1;
   color: #49426B;
+  font-size: 1rem; /* Increased font size */
+  min-width: 400px; /* Increased minimum width for larger appearance */
+  box-shadow: none; /* Remove any default shadows */
+  outline: none; /* Remove default outline */
+  height: 45px; /* Reduced height from 59px to 45px */
+  line-height: 1.5; /* Consistent line height */
+  vertical-align: middle; /* Ensure vertical alignment */
+  box-sizing: border-box; /* Include padding in total width/height */
+  -webkit-appearance: none; /* Remove default webkit styling */
+  -moz-appearance: none; /* Remove default mozilla styling */
+  appearance: none; /* Remove default styling */
+  font-family: inherit; /* Use parent font family */
+  margin: 0; /* Remove any default margin */
+}
+
+.subscribe-input::placeholder {
+  color: #999; /* Placeholder color */
+  font-size: 1rem;
 }
 
 .subscribe-btn {
   /* Updated button color as requested */
-  background-color: #D5A8C2; 
-  color: #000000;
-  padding: 1rem 1.5rem;
+  background-color: #625B84; /* Changed to requested color */
+  color: #ffffff; /* Changed to white text for better contrast */
+  padding: 0 2rem; /* Remove vertical padding, keep horizontal */
   border: none;
   border-radius: 8px;
   cursor: pointer;
   font-weight: 500;
   text-transform: capitalize;
-  min-width: 120px;
+  min-width: 140px; /* Increased minimum width */
   transition: background-color 0.3s ease;
+  height: 45px; /* Reduced height from 59px to 45px */
+  line-height: 1.5; /* Match input line height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box; /* Include padding in total width/height */
+  font-family: inherit; /* Use parent font family */
+  margin: 0; /* Remove any default margin */
+  font-size: 1rem; /* Match input font size */
 }
 
 .subscribe-btn:hover {
-  background-color: #c196b0; /* Darker shade of the new button color */
+  background-color: #544c70; /* Darker shade of the new button color */
 }
 
 /* --- Links Section --- */
 .footer-links-section {
+  background-color: #FAEDF5; /* Light pink background as requested */
   display: flex;
   padding: 4rem 5rem;
   justify-content: space-between;
@@ -140,7 +174,7 @@
 .footer-column h4 {
   font-family: 'Playfair Display', serif; /* Updated to Playfair Display */
   font-size: 1rem;
-  font-weight: 700;
+  font-weight: 400; /* Changed from 700 to 400 */
   color: #7C759D; /* Updated color as requested */
   margin-bottom: 1rem;
   text-transform: uppercase;
@@ -190,6 +224,10 @@
     width: 100%;
     min-width: auto;
     align-items: flex-start;
+  }
+  
+  .subscribe-form {
+    gap: 1rem; /* Reduce gap on tablet */
   }
   
   .footer-links-section {

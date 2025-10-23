@@ -9,8 +9,10 @@ import founderMessageBgImg from '../assets/images/about/founder-message-bg.png';
 import './AboutPage.css';
 
 const AboutPage = () => {
-  const storyText = "Scrble was born from a love of cute little things that make every day brighter. From tote bags that carry your world, to tumblers that make your coffee breaks prettier, to clothes that let little girls twirl with joy — we create pieces that feel fun, stylish, and full of confidence.";
-  const founderQuote = "Heyy iam pravallike so founder is big word i i started scrble Scrble was born from a love of cute little things that make every day brighter. From tote bags that carry your world, to tumblers that make your coffee breaks prettier, to clothes that let little girls twirl with joy — we create pieces that feel fun, stylish, and full of confidence.";
+  const firstStoryText = "Scrble isn't just a brand — it's a story. It's for the girl who felt out of place in school, the one who was judged for how she looked. For the girl who was called \"too much\" because she felt deeply, laughed loudly, and dreamed boldly. For the girl who learned to see her beauty through someone else's eyes before realizing she could define it herself. For the girl who tried to fit in when she was born to stand out. Scrble was born for her — the girl rewriting her own story.";
+  const secondStoryText = "Every tote, tee, and tumbler we create is a quiet reminder that you are the main character in your movie. You don't need validation to be beautiful, or permission to be confident. Your flaws, quirks, and chaos are what make you unforgettable. So when you wear our tees, carry our totes, or sip from our tumblers — remember: you're not just holding a product. You're holding a statement — that you are bold, beautiful, and entirely your own. Scrble — for the girl still writing her story, her way.";
+  const missionText = "At Scrble, our mission is to grow as a brand of self-expression and relatability — a space where real girls feel seen, confident, and connected. We aim to build a community-driven brand that goes beyond products — one that brings people together through events, conversations, and shared stories. From our totes to our tees and tumblers, every piece is a reminder to embrace who you are, express yourself freely, and celebrate your individuality.";
+  const founderQuote = "Hey, I'm Pravallika. \"Founder\" is a big word, but I'm proud to say it. I started Scrble at 20, fulfilling a dream I'd had since I was 18. Designing and creating inspires me — it's my way of expressing myself, putting my thoughts and energy into something tangible. Scrble is a reminder for me (and for every girl) that we are capable of anything we set our minds to. Our products — totes, tees, and tumblers are Pinterest-coded cute, bold, and made to slay in your daily life. This is more than a brand; it's a community. So grab your favorite piece, express yourself, and stay hot.";
 
   return (
     <>
@@ -22,7 +24,7 @@ const AboutPage = () => {
           {/* Story Block 1: Text Left, Image Right */}
           <div className="content-block">
             <div className="text-content">
-              <p>{storyText}</p>
+              <p>{firstStoryText}</p>
             </div>
             <div className="image-content">
               <img src={story1Img} alt="Two women holding tote bags" />
@@ -32,7 +34,7 @@ const AboutPage = () => {
           {/* Story Block 2: Image Left, Text Right (Reversed) */}
           <div className="content-block reverse">
             <div className="text-content">
-              <p>{storyText}</p>
+              <p>{secondStoryText}</p>
             </div>
             <div className="image-content">
               <img src={story2Img} alt="Woman standing outside with a white tote bag" />
@@ -46,7 +48,7 @@ const AboutPage = () => {
           {/* Mission Block: Text Left, Image Right */}
           <div className="content-block">
             <div className="text-content">
-              <p>{storyText}</p>
+              <p>{missionText}</p>
             </div>
             <div className="image-content">
               <img src={missionImg} alt="Woman walking in a park with a tote bag" />
