@@ -2,16 +2,8 @@ import React from 'react';
 import Header from '../components/layout/Header';
 import Footer from '../components/layout/Footer';
 import ProductCard from '../components/products/ProductCard';
-import { topPicksData } from '../utils/data'; // Importing dummy data
+import { tumblersData } from '../utils/data'; // Import tumblers data
 import './CollectionThreePage.css';
-
-// Duplicate the dummy data to simulate a large product listing
-const collectionData = [
-  ...topPicksData, 
-  ...topPicksData, 
-  ...topPicksData, 
-  ...topPicksData
-]; 
 
 const CollectionThreePage = () => {
   return (
@@ -20,16 +12,15 @@ const CollectionThreePage = () => {
       <main className="collection-page-main" role="main">
         {/* Banner area matching the home page pattern */}
         <section className="collection-banner" aria-labelledby="collection-title">
-          <h1 id="collection-title">Collection Three</h1>
-          <p>Step into the spotlight with our trending picks that make you shine.</p>
+          <h1 id="collection-title">Tumblers</h1>
+          <p>Stay hydrated in style with our premium tumbler collection designed for your active lifestyle.</p>
         </section>
 
         {/* Product Grid */}
-        <section className="collection-product-grid" aria-label="Products in Collection Three">
-          {collectionData.map((product, index) => (
-            // Use a unique key by combining product ID and index
+        <section className="collection-product-grid" aria-label="Tumblers Collection">
+          {tumblersData.map((product) => (
             <ProductCard 
-              key={`${product.id}-${index}`} 
+              key={product.id} 
               product={product} 
             />
           ))}

@@ -15,6 +15,10 @@ import ProductDetailPage from './pages/ProductDetailPage';
 import CollectionOnePage from './pages/CollectionOnePage';
 import CollectionTwoPage from './pages/CollectionTwoPage';
 import CollectionThreePage from './pages/CollectionThreePage';
+import CollectionMainCharacter from './pages/CollectionMainCharacter';
+import CollectionThatGirl from './pages/CollectionThatGirl';
+import CollectionSelfObsessed from './pages/CollectionSelfObsessed';
+import ShopPage from './pages/ShopPage';
 import ScrollToTop from './components/common/ScrollToTop';
 import ErrorBoundary from './components/common/ErrorBoundary';
 
@@ -71,10 +75,15 @@ const App = () => {
           <Route path="/collections/two" element={<CollectionTwoPage />} />
           <Route path="/collections/three" element={<CollectionThreePage />} />
           
+          {/* Themed Collections Routes */}
+          <Route path="/collections/main-character" element={<CollectionMainCharacter />} />
+          <Route path="/collections/that-girl" element={<CollectionThatGirl />} />
+          <Route path="/collections/self-obsessed" element={<CollectionSelfObsessed />} />
+          
           {/* Shop and Categories Routes */}
-          <Route path="/shop" element={<CollectionOnePage />} />
-          <Route path="/categories" element={<CollectionOnePage />} />
-          <Route path="/search" element={<CollectionOnePage />} />
+          <Route path="/shop" element={<ShopPage />} />
+          <Route path="/categories" element={<ShopPage />} />
+          <Route path="/search" element={<ShopPage />} />
           
           {/* Admin Dashboard Route */}
           <Route path="/admin" element={<AdminDashboard />} />

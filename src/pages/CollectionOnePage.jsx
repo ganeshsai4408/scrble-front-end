@@ -2,16 +2,8 @@ import React from 'react';
 import Header from '../components/layout/Header';
 import Footer from '../components/layout/Footer';
 import ProductCard from '../components/products/ProductCard';
-import { topPicksData } from '../utils/data'; // Importing dummy data
+import { toteBagsData } from '../utils/data'; // Import tote bags data
 import './CollectionOnePage.css';
-
-// Duplicate the dummy data to simulate a large product listing
-const collectionData = [
-  ...topPicksData, 
-  ...topPicksData, 
-  ...topPicksData, 
-  ...topPicksData
-]; 
 
 const CollectionOnePage = () => {
   return (
@@ -20,16 +12,15 @@ const CollectionOnePage = () => {
       <main className="collection-page-main" role="main">
         {/* Banner area matching the home page pattern */}
         <section className="collection-banner" aria-labelledby="collection-title">
-          <h1 id="collection-title">Collection One</h1>
-          <p>Discover the latest trendsetting products that define your aesthetic.</p>
+          <h1 id="collection-title">Tote Bags</h1>
+          <p>Carry your essentials in style with our trendy and functional tote bag collection.</p>
         </section>
 
         {/* Product Grid */}
-        <section className="collection-product-grid" aria-label="Products in Collection One">
-          {collectionData.map((product, index) => (
-            // Use a unique key by combining product ID and index
+        <section className="collection-product-grid" aria-label="Tote Bags Collection">
+          {toteBagsData.map((product) => (
             <ProductCard 
-              key={`${product.id}-${index}`} 
+              key={product.id} 
               product={product} 
             />
           ))}

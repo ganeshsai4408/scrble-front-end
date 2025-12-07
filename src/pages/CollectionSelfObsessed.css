@@ -1,0 +1,109 @@
+/* src/pages/CollectionSelfObsessed.css */
+
+/* --- Banner Section Styling --- */
+
+.collection-banner {
+  /* Dimensions and Layout */
+  height: 35vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 2rem 1.5rem;
+  
+  /* Background matching the Home Page Hero */
+  background-color: #fce4ec; 
+  background-image: url('/assets/images/hero-bg.jpg'); 
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.collection-banner h1 {
+  /* Font matching Playfair Display, Italic, Bold, and Dark Purple */
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-style: italic;
+  font-size: 4rem;
+  color: #49426B; 
+  margin-bottom: 0.5rem;
+}
+
+.collection-banner p {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.1rem;
+  color: #49426B;
+}
+
+/* --- Product Grid Styling --- */
+
+.collection-product-grid {
+  /* Desktop Layout: 3 columns */
+  display: grid;
+  gap: 2.5rem 2rem;
+  grid-template-columns: repeat(3, 1fr); 
+  
+  /* Padding */
+  padding: 4rem 5rem; 
+}
+
+/* --- Responsive Design --- */
+
+/* Tablet View */
+@media (max-width: 1024px) {
+  .collection-banner h1 {
+    font-size: 3.2rem;
+  }
+  
+  .collection-banner p {
+    font-size: 1rem;
+    padding: 0 1rem;
+  }
+  
+  .collection-product-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem 1.5rem;
+    padding: 3rem 3rem;
+  }
+}
+
+/* Mobile View */
+@media (max-width: 768px) {
+  .collection-banner {
+    height: 30vh;
+    padding: 1.5rem 1rem;
+  }
+  
+  .collection-banner h1 {
+    font-size: 2.8rem;
+  }
+  
+  .collection-banner p {
+    font-size: 0.95rem; 
+    padding: 0 0.5rem;
+  }
+  
+  .collection-product-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem 1rem;
+    padding: 2.5rem 1.5rem;
+  }
+}
+
+/* Small Mobile View */
+@media (max-width: 480px) {
+  .collection-banner h1 {
+    font-size: 2.2rem;
+  }
+  
+  .collection-banner p {
+    font-size: 0.9rem; 
+  }
+  
+  .collection-product-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 2rem 1rem;
+  }
+}

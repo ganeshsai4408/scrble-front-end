@@ -10,6 +10,7 @@ import './Header.css';
 const Header = () => {
   const { toggleDrawer, totalItems } = useCart();
   const [isCollectionsOpen, setIsCollectionsOpen] = useState(false);
+  const [isThemedCollectionsOpen, setIsThemedCollectionsOpen] = useState(false);
   const location = useLocation();
 
   const handleCartClick = (e) => {
@@ -19,6 +20,10 @@ const Header = () => {
 
   const toggleCollectionsDropdown = () => {
     setIsCollectionsOpen(!isCollectionsOpen);
+  };
+
+  const toggleThemedCollectionsDropdown = () => {
+    setIsThemedCollectionsOpen(!isThemedCollectionsOpen);
   };
 
   // Helper function to check if a path is active
@@ -45,15 +50,15 @@ const Header = () => {
         <nav className="nav" aria-label="Primary">
           <ul>
             <li><Link to="/" className={isActivePath('/') ? 'active' : ''}>Home</Link></li>
-            <li><a href="/shop" className={isActivePath('/shop') ? 'active' : ''}>Shop all</a></li>
+            <li><Link to="/shop" className={isActivePath('/shop') ? 'active' : ''}>Shop all</Link></li>
             <li className="collections-dropdown">
               <button 
-                className={`dropdown-trigger ${isActivePath('/collections') ? 'active' : ''}`}
+                className={`dropdown-trigger ${isActivePath('/categories') ? 'active' : ''}`}
                 onClick={toggleCollectionsDropdown}
                 onMouseEnter={() => setIsCollectionsOpen(true)}
                 onMouseLeave={() => setIsCollectionsOpen(false)}
               >
-                Collections <FaChevronDown className={`dropdown-icon ${isCollectionsOpen ? 'rotated' : ''}`} />
+                Categories <FaChevronDown className={`dropdown-icon ${isCollectionsOpen ? 'rotated' : ''}`} />
               </button>
               <div 
                 className={`dropdown-menu ${isCollectionsOpen ? 'show' : ''}`}
@@ -63,6 +68,25 @@ const Header = () => {
                 <Link to="/collections/one" className="dropdown-item">Tote bags</Link>
                 <Link to="/collections/two" className="dropdown-item">Clothing</Link>
                 <Link to="/collections/three" className="dropdown-item">Tumbler</Link>
+              </div>
+            </li>
+            <li className="collections-dropdown">
+              <button 
+                className={`dropdown-trigger ${isActivePath('/collections') ? 'active' : ''}`}
+                onClick={toggleThemedCollectionsDropdown}
+                onMouseEnter={() => setIsThemedCollectionsOpen(true)}
+                onMouseLeave={() => setIsThemedCollectionsOpen(false)}
+              >
+                Collections <FaChevronDown className={`dropdown-icon ${isThemedCollectionsOpen ? 'rotated' : ''}`} />
+              </button>
+              <div 
+                className={`dropdown-menu ${isThemedCollectionsOpen ? 'show' : ''}`}
+                onMouseEnter={() => setIsThemedCollectionsOpen(true)}
+                onMouseLeave={() => setIsThemedCollectionsOpen(false)}
+              >
+                <Link to="/collections/main-character" className="dropdown-item">Main Character</Link>
+                <Link to="/collections/that-girl" className="dropdown-item">That Girl</Link>
+                <Link to="/collections/self-obsessed" className="dropdown-item">Self-Obsessed</Link>
               </div>
             </li>
             <li><Link to="/about" className={isActivePath('/about') ? 'active' : ''}>About</Link></li>

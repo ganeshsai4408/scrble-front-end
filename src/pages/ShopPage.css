@@ -1,0 +1,109 @@
+/* src/pages/ShopPage.css */
+
+/* --- Banner Section Styling --- */
+
+.collection-banner {
+  /* Dimensions and Layout */
+  height: 35vh; /* Set height to be a bit shorter than the main Hero */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 2rem 1.5rem;
+  
+  /* Background matching the Home Page Hero */
+  background-color: #fce4ec; 
+  background-image: url('/assets/images/hero-bg.jpg'); 
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.collection-banner h1 {
+  /* Font matching Playfair Display, Italic, Bold, and Dark Purple */
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-style: italic;
+  font-size: 4rem; /* Adjusted for banner title */
+  color: #49426B; 
+  margin-bottom: 0.5rem;
+}
+
+.collection-banner p {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.1rem;
+  color: #49426B;
+}
+
+/* --- Product Grid Styling --- */
+
+.collection-product-grid {
+  /* Desktop Layout: 3 columns for shop all page */
+  display: grid;
+  gap: 2.5rem 2rem; /* Vertical gap 2.5rem, Horizontal gap 2rem */
+  grid-template-columns: repeat(3, 1fr); 
+  
+  /* Padding matching the desktop header/section padding */
+  padding: 4rem 5rem; 
+}
+
+/* --- Responsive Design --- */
+
+/* Tablet View */
+@media (max-width: 1024px) {
+  .collection-banner h1 {
+    font-size: 3.2rem; /* Reduced title font size */
+  }
+  
+  .collection-banner p {
+    font-size: 1rem; /* Smaller paragraph text */
+    padding: 0 1rem; /* Side padding for text */
+  }
+  
+  .collection-product-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns on tablets */
+    gap: 2rem 1.5rem;
+    padding: 3rem 3rem; /* Reduced padding */
+  }
+}
+
+/* Mobile View */
+@media (max-width: 768px) {
+  .collection-banner {
+    height: 30vh; /* Smaller banner height */
+    padding: 1.5rem 1rem;
+  }
+  
+  .collection-banner h1 {
+    font-size: 2.8rem; /* Mobile title font size */
+  }
+  
+  .collection-banner p {
+    font-size: 0.95rem; 
+    padding: 0 0.5rem;
+  }
+  
+  .collection-product-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns on mobile */
+    gap: 1.5rem 1rem; /* Smaller gaps */
+    padding: 2.5rem 1.5rem; /* Mobile padding */
+  }
+}
+
+/* Small Mobile View */
+@media (max-width: 480px) {
+  .collection-banner h1 {
+    font-size: 2.2rem; /* Smaller mobile title */
+  }
+  
+  .collection-banner p {
+    font-size: 0.9rem; 
+  }
+  
+  .collection-product-grid {
+    grid-template-columns: 1fr; /* Single column on small screens */
+    gap: 1.5rem;
+    padding: 2rem 1rem; /* Minimal padding */
+  }
+}

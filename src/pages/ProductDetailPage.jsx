@@ -5,37 +5,98 @@ import Footer from '../components/layout/Footer';
 import ProductCard from '../components/products/ProductCard';
 import QuantityButton from '../components/common/QuantityButton';
 import { useCart } from '../context/CartContext';
-import { topPicksData } from '../utils/data';
+import { topPicksData, toteBagsData, teesData, tumblersData, shopAllData } from '../utils/data';
 import { FaHeart, FaTruck, FaLock, FaSync } from 'react-icons/fa';
 import './ProductDetailPage.css';
 
 // --- Dynamic Data Fetching Function ---
 const fetchProductDetails = (id) => {
-  // Find the product from topPicksData based on ID
-  const foundProduct = topPicksData.find(product => product.id === parseInt(id));
+  // Combine all product data arrays
+  const allProducts = [
+    ...topPicksData,
+    ...toteBagsData,
+    teesData,
+    ...tumblersData,
+    ...shopAllData
+  ];
+  
+  // Find the product from all data based on ID
+  const foundProduct = allProducts.find(product => product.id === parseInt(id));
   
   if (!foundProduct) {
     return null; // Product not found
+  }
+
+  // Determine collection name based on category
+  let collectionName = "Scrble Collection";
+  if (foundProduct.category === "tote-bags") {
+    collectionName = "Tote Bags Collection";
+  } else if (foundProduct.category === "tees") {
+    collectionName = "Clothing Collection";
+  } else if (foundProduct.category === "tumblers") {
+    collectionName = "Tumblers Collection";
+  } else if (foundProduct.category === "featured") {
+    collectionName = "Featured Products";
+  }
+
+  // Dynamic product description based on product type
+  let productDescription = [];
+  
+  if (foundProduct.category === "tote-bags") {
+    productDescription = [
+      "100% Cotton Canvas — durable and eco-friendly.",
+      "Zipper Closure — keeps your essentials secure.",
+      "Spacious & Sturdy — perfect for daily use.",
+      "Custom Printed Design — made to match your vibe."
+    ];
+  } else if (foundProduct.category === "tumblers") {
+    productDescription = [
+      "304 Stainless Steel — durable and rust-free.",
+      "Double-Wall Insulation — keeps drinks hot or cold for hours.",
+      "20 oz Capacity — includes splash-proof lid and metal straw.",
+      "High-Quality Print — fade-proof Scrble design made to last."
+    ];
+  } else if (foundProduct.category === "tees") {
+    // Check if it's the Certified Yapper Sweatshirt
+    if (foundProduct.id === 201) {
+      productDescription = [
+        "400 GSM Fabric — thick, soft, and premium quality.",
+        "Unisex Oversized Fit — relaxed and comfy for all.",
+        "Pre-Shrunk & Bio-Washed — stays perfect after every wash.",
+        "High-Quality Print — long-lasting Scrble design."
+      ];
+    } else {
+      // For all other clothing items
+      productDescription = [
+        "100% Cotton (180 GSM) — soft, breathable, and premium quality.",
+        "Perfect Fit — cropped length with double-stitched seams for durability.",
+        "Vibrant Print Quality — high-definition DTF/DTG printing that lasts.",
+        "Pre-Shrunk & Bio-Washed — stays smooth and true to size after wash."
+      ];
+    }
+  } else {
+    // Default description
+    productDescription = [
+      "1. High-quality materials and craftsmanship.",
+      "2. Perfect for everyday use and special occasions.",
+      "3. If you have a custom request, please contact us at scrble@gmail.com or connect us at whatsapp.",
+      "4. Durable design built to last."
+    ];
   }
 
   // Convert the basic product data to detailed product format
   const product = {
     id: foundProduct.id,
     name: foundProduct.name,
-    collection: "Main Character collection",
-    currentPrice: parseFloat(foundProduct.price.replace('$', '')),
-    originalPrice: parseFloat(foundProduct.price.replace('$', '')) + 5, // Add $5 as original price
+    collection: collectionName,
+    currentPrice: parseFloat(foundProduct.price.replace('₹', '').replace('$', '')),
+    originalPrice: parseFloat(foundProduct.price.replace('₹', '').replace('$', '')) + 5, // Add 5 as original price
     rating: 4.5,
-    sizes: [8, 10, 12, 14, 16, 18, 20],
+    sizes: foundProduct.category === "tumblers" ? ["12oz", "16oz", "20oz", "24oz"] : ["S", "M", "L", "XL", "XXL"],
     image: foundProduct.image,
     tagline: foundProduct.tagline,
-    description: [
-      "1. High-quality materials and craftsmanship.",
-      "2. Perfect for everyday wear and special occasions.",
-      "3. If you have a custom request, please contact us at scrble@gmail.com or connect us at whatsapp.",
-      "4. Machine washable and long-lasting design."
-    ],
-    youMayLike: topPicksData.filter(product => product.id !== foundProduct.id) // Show other products except current one
+    description: productDescription,
+    youMayLike: allProducts.filter(product => product.id !== foundProduct.id).slice(0, 3) // Show 3 other products
   };
   return product;
 };
@@ -45,7 +106,7 @@ const ProductDetailPage = () => {
   const { addToCart } = useCart();
   const navigate = useNavigate();
   const [product, setProduct] = useState(null);
-  const [selectedSize, setSelectedSize] = useState(10);
+  const [selectedSize, setSelectedSize] = useState("M");
   const [quantity, setQuantity] = useState(1);
 
   // Load dynamic product data on mount
@@ -102,8 +163,8 @@ const ProductDetailPage = () => {
             
             <div className="price-rating-row">
               <div className="price-group">
-                <span className="current-price">${product.currentPrice.toFixed(2)}</span>
-                <span className="original-price">${product.originalPrice.toFixed(2)}</span>
+                <span className="current-price">₹{product.currentPrice.toFixed(2)}</span>
+                <span className="original-price">₹{product.originalPrice.toFixed(2)}</span>
               </div>
               <div className="rating">
                 <span className="rating-star">★</span>
@@ -151,9 +212,9 @@ const ProductDetailPage = () => {
             <div className="service-policy-group">
               <h4>Service policy</h4>
               <ul className="service-list">
-                <li><FaTruck /> Cash on delivery is available in all location</li>
-                <li><FaLock /> Cash on delivery is available in all location</li>
-                <li><FaSync /> Cash on delivery is available in all location</li>
+                <li><FaTruck /> Cash on delivery is available</li>
+                <li><FaLock /> Nationwide Shipping — We deliver all over India</li>
+                <li><FaSync /> Additional Delivery Charge:₹79</li>
               </ul>
             </div>
 

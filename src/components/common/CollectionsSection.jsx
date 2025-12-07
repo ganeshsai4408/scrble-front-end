@@ -5,27 +5,27 @@ import './CollectionsSection.css';
 const CollectionsSection = () => {
   const navigate = useNavigate(); // 🛑 Initialize navigate hook
   
-  // Function to handle navigation to Collection One
+  // Function to handle navigation to Main Character Collection
   const handleExploreCollectionOne = () => {
-    navigate('/collections/one');
+    navigate('/collections/main-character');
     // Additional scroll to top (backup method)
     setTimeout(() => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }, 100);
   };
 
-  // Function to handle navigation to Collection Two
+  // Function to handle navigation to That Girl Collection
   const handleExploreCollectionTwo = () => {
-    navigate('/collections/two');
+    navigate('/collections/that-girl');
     // Additional scroll to top (backup method)
     setTimeout(() => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }, 100);
   };
 
-  // Function to handle navigation to Collection Three
+  // Function to handle navigation to Self-Obsessed Collection
   const handleExploreCollectionThree = () => {
-    navigate('/collections/three');
+    navigate('/collections/self-obsessed');
     // Additional scroll to top (backup method)
     setTimeout(() => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
