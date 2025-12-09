@@ -80,3 +80,9 @@ scrble-front-end/
 ├── public/               # Static files
 ├── package.json          # Dependencies & scripts
 └── README.md             # You're reading it now :)
+Ganesh Sai
+GitHub: https://github.com/ganeshsai4408
+
+Portfolio: https://portfolio-m7p4.vercel.app
+
+<p align="center"> <img src="https://forthebadge.com/images/badges/uses-html.svg" /> <img src="https://forthebadge.com/images/badges/made-with-javascript.svg" /> <img src="https://forthebadge.com/images/badges/built-with-love.svg" /> </p> <p align="center"><strong>Made with ❤ by @ganeshsai4408 — Crafting clean UI for modern commerce.</strong></p>
