@@ -43,7 +43,7 @@ const Footer = () => {
           </div>
           <p className="footer-tagline">"Where Ambition Meets Aesthetic"</p>
           <div className="social-links">
-            <a href="#" aria-label="Instagram"><FaInstagram /></a>
+            <a href="https://www.instagram.com/scrble_/" aria-label="Instagram"><FaInstagram /></a>
             <a href="#" aria-label="Pinterest"><FaPinterestP /></a>
             <a href="#" aria-label="YouTube"><FaYoutube /></a>
           </div>
